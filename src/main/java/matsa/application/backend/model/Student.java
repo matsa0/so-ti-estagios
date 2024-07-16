@@ -18,7 +18,7 @@ public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 30, name = "firstName")
+    @Column(nullable = false, length = 30)
     private String firstName;
     @Column(nullable = false, length = 30)
     private String lastName;
@@ -55,10 +55,10 @@ public class Student implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getFisrtName() {
+    public String getFirstName() {
         return firstName;
     }
-    public void setFisrtName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     public String getLastName() {

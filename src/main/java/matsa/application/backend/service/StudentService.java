@@ -30,4 +30,32 @@ public class StudentService {
 
         return StudentMapper.INSTANCE.studentToStudentDTO(student);
     }
+
+    public StudentDTO create(Student obj) {
+        Student student = repository.save(obj);
+
+        return StudentMapper.INSTANCE.studentToStudentDTO(student);
+    }
+
+    public StudentDTO update(Student student) {
+        //recebe o objeto atualizado, mas busca o antigo pelo id e o atualiza através do Student update
+        Student update = repository.findById(student.getId()).orElseThrow();
+
+        update.setFirstName(student.getFirstName());
+        update.setLastName(student.getLastName());
+        update.setBirthDate(student.getBirthDate());
+        update.setCity(student.getCity());
+        update.setAcademy(student.getAcademy());
+        update.setDescription(student.getDescription());
+        update.setUsername(student.getUsername());
+        update.setPassword(student.getPassword());
+
+        repository.save(update);
+
+        return StudentMapper.INSTANCE.studentToStudentDTO(student);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }

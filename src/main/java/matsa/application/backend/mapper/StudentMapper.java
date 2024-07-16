@@ -12,7 +12,7 @@ public interface StudentMapper {
     StudentMapper INSTANCE = Mappers.getMapper(StudentMapper.class);
     
     @Mapping(source = "id", target = "id")
-    @Mapping(source = "fisrtName", target = "firstName")
+    @Mapping(source = "firstName", target = "firstName")
     @Mapping(source = "lastName", target = "lastName")
     @Mapping(source = "birthDate", target = "birthDate")
     @Mapping(source = "city", target = "city")

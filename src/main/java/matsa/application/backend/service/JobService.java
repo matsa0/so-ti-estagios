@@ -31,4 +31,27 @@ public class JobService {
 
         return JobMapper.INSTANCE.jobToJobDTO(job);
     }
+
+    public JobDTO create(Job obj) {
+        Job job = repository.save(obj);
+        
+        return JobMapper.INSTANCE.jobToJobDTO(job);
+    }
+
+    public JobDTO update(Job obj) {
+        Job update = repository.findById(obj.getId()).orElseThrow();
+    
+        update.setTitle(obj.getTitle());
+        update.setModality(obj.getModality());
+        update.setLocation(obj.getLocation());
+        update.setDescription(obj.getDescription());
+
+        repository.save(update);
+
+        return JobMapper.INSTANCE.jobToJobDTO(update);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }

@@ -31,4 +31,27 @@ public class CompanyService {
 
         return CompanyMapper.INSTANCE.companyToCompanyDTO(company);
     }
+
+    public CompanyDTO create(Company obj) {
+        Company company = repository.save(obj);
+
+        return CompanyMapper.INSTANCE.companyToCompanyDTO(company);
+    }
+
+    public CompanyDTO update(Company obj) {
+        Company update = repository.findById(obj.getId()).orElseThrow();
+
+        update.setName(obj.getName());
+        update.setCnpj(obj.getCnpj());
+        update.setReleaseYear(obj.getReleaseYear());
+        update.setHqLocation(obj.getHqLocation());
+        
+        repository.save(update);
+
+        return CompanyMapper.INSTANCE.companyToCompanyDTO(update);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }
