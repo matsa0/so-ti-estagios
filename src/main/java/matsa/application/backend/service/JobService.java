@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import matsa.application.backend.dto.JobDTO;
+import matsa.application.backend.exception.ResourceNotFoundException;
 import matsa.application.backend.mapper.JobMapper;
 import matsa.application.backend.model.Job;
 
@@ -27,7 +28,7 @@ public class JobService {
     }
 
     public JobDTO findById(Long id) {
-        Job job = repository.findById(id).orElseThrow();
+        Job job = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 
         return JobMapper.INSTANCE.jobToJobDTO(job);
     }
@@ -39,7 +40,7 @@ public class JobService {
     }
 
     public JobDTO update(Job obj) {
-        Job update = repository.findById(obj.getId()).orElseThrow();
+        Job update = repository.findById(obj.getId()).orElseThrow(() -> new ResourceNotFoundException(obj.getId()));
     
         update.setTitle(obj.getTitle());
         update.setModality(obj.getModality());
@@ -52,6 +53,10 @@ public class JobService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch(Exception e) {
+            throw new ResourceNotFoundException(id);
+        }
     }
 }

@@ -2,12 +2,17 @@ package matsa.application.backend.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+import java.util.HashSet;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,7 +37,29 @@ public class Student implements Serializable {
     private String username;
     @Column(nullable = false)
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+        name = "apply",
+        joinColumns = @JoinColumn(name = "student_id"),
+        inverseJoinColumns = @JoinColumn(name = "job_id"))
+    private Set<Job> jobs = new HashSet<>();
     
+    
+    public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
+            String description, String username, String password, Set<Job> jobs) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.city = city;
+        this.academy = academy;
+        this.description = description;
+        this.username = username;
+        this.password = password;
+        this.jobs = jobs;
+    }
+
     public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
             String description, String username, String password) {
         this.id = id;
@@ -102,6 +129,12 @@ public class Student implements Serializable {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Set<Job> getJobs() {
+        return jobs;
+    }
+    public void setJobs(Set<Job> jobs) {
+        this.jobs = jobs;
     }
     
     @Override

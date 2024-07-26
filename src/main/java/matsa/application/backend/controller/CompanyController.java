@@ -20,7 +20,7 @@ import matsa.application.backend.model.Company;
 import matsa.application.backend.service.CompanyService;
 
 @RestController
-@RequestMapping("/api/company/v1")
+@RequestMapping("/api/v1/company")
 public class CompanyController {
     
     @Autowired

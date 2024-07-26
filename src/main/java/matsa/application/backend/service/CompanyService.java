@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import matsa.application.backend.dto.CompanyDTO;
+import matsa.application.backend.exception.ResourceNotFoundException;
 import matsa.application.backend.mapper.CompanyMapper;
 import matsa.application.backend.model.Company;
 import matsa.application.backend.repository.CompanyRepository;
@@ -27,7 +28,7 @@ public class CompanyService {
     }
 
     public CompanyDTO findById(Long id) {
-        Company company = repository.findById(id).orElseThrow();
+        Company company = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 
         return CompanyMapper.INSTANCE.companyToCompanyDTO(company);
     }
@@ -39,7 +40,7 @@ public class CompanyService {
     }
 
     public CompanyDTO update(Company obj) {
-        Company update = repository.findById(obj.getId()).orElseThrow();
+        Company update = repository.findById(obj.getId()).orElseThrow(() -> new ResourceNotFoundException(obj.getId()));
 
         update.setName(obj.getName());
         update.setCnpj(obj.getCnpj());
@@ -52,6 +53,10 @@ public class CompanyService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch(Exception e) {
+            throw new ResourceNotFoundException(id);
+        }
     }
 }

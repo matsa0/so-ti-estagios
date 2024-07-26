@@ -1,12 +1,16 @@
 package matsa.application.backend.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +29,17 @@ public class Company implements Serializable {
     @Column(nullable = true)
     private String hqLocation;
 
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<Job> jobs = new ArrayList<>();
+
+    public Company(Long id, String name, String cnpj, String releaseYear, String hqLocation, List<Job> jobs) {
+        this.id = id;
+        this.name = name;
+        this.cnpj = cnpj;
+        this.releaseYear = releaseYear;
+        this.hqLocation = hqLocation;
+        this.jobs = jobs;
+    }
 
     public Company() {
     }
@@ -65,6 +80,12 @@ public class Company implements Serializable {
     }
     public void setHqLocation(String hqLocation) {
         this.hqLocation = hqLocation;
+    }
+    public List<Job> getJobs() {
+        return jobs;
+    }
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 
     @Override

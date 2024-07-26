@@ -19,7 +19,7 @@ import matsa.application.backend.model.Job;
 import matsa.application.backend.service.JobService;
 
 @RestController
-@RequestMapping("/api/job/v1")
+@RequestMapping("/api/v1/job")
 public class JobController {
     
     @Autowired

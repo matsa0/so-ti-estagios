@@ -19,7 +19,7 @@ import matsa.application.backend.model.Student;
 import matsa.application.backend.service.StudentService;
 
 @RestController
-@RequestMapping("/api/student/v1")
+@RequestMapping("/api/v1/student")
 public class StudentController {
     
     @Autowired

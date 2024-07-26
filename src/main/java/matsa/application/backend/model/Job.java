@@ -1,13 +1,19 @@
 package matsa.application.backend.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import matsa.application.backend.model.enums.JobModality;
 
 @Entity
 @Table(name = "job")
@@ -22,19 +28,37 @@ public class Job implements Serializable {
     @Column(nullable = false, length = 1000)
     private String description;
     @Column(nullable = false)
-    private String modality;
+    private JobModality modality;
     private String location;
 
-    public Job(Long id, String title, String description, String modality, String location) {
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
+    @ManyToMany(mappedBy = "jobs")
+    private Set<Student> students = new HashSet<>();
+
+    public Job(Long id, String title, String description, JobModality modality, String location) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.modality = modality;
         this.location = location;
     }
-    public Job() {
+
+    public Job(Long id, String title, String description, JobModality modality, String location, Company company,
+            Set<Student> students) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.modality = modality;
+        this.location = location;
+        this.company = company;
+        this.students = students;
     }
 
+    public Job() {
+    }
 
     public Long getId() {
         return id;
@@ -54,10 +78,10 @@ public class Job implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getModality() {
+    public JobModality getModality() {
         return modality;
     }
-    public void setModality(String modality) {
+    public void setModality(JobModality modality) {
         this.modality = modality;
     }
     public String getLocation() {
@@ -66,7 +90,19 @@ public class Job implements Serializable {
     public void setLocation(String location) {
         this.location = location;
     }
-
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+    public Set<Student> getStudents() {
+        return students;
+    }
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+    
     @Override
     public int hashCode() {
         final int prime = 31;

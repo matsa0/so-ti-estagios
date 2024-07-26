@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import matsa.application.backend.dto.StudentDTO;
+import matsa.application.backend.exception.ResourceNotFoundException;
 import matsa.application.backend.mapper.StudentMapper;
 import matsa.application.backend.model.Student;
 import matsa.application.backend.repository.StudentRepository;
@@ -26,7 +27,7 @@ public class StudentService {
     }
 
     public StudentDTO findById(Long id) {
-        Student student = repository.findById(id).orElseThrow();
+        Student student = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 
         return StudentMapper.INSTANCE.studentToStudentDTO(student);
     }
@@ -39,7 +40,7 @@ public class StudentService {
 
     public StudentDTO update(Student student) {
         //recebe o objeto atualizado, mas busca o antigo pelo id e o atualiza através do Student update
-        Student update = repository.findById(student.getId()).orElseThrow();
+        Student update = repository.findById(student.getId()).orElseThrow(() -> new ResourceNotFoundException(student.getId()));
 
         update.setFirstName(student.getFirstName());
         update.setLastName(student.getLastName());
@@ -56,6 +57,10 @@ public class StudentService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch(Exception e) {
+            throw new ResourceNotFoundException(id);
+        }
     }
 }
