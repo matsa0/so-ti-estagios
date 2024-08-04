@@ -1,0 +1,11 @@
+.centerScreen .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.457);
+    width: 476px;
+    height: 523px;
+}
