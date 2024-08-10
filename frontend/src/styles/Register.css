@@ -1,10 +1,10 @@
-.centerScreen .loginScope {
+.centerScreen .registerScope {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    width: 895px;
+    height: 583px;
     background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.457);
-    width: 476px;
-    height: 523px;
 }
+
