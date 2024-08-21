@@ -48,7 +48,7 @@ public class StudentService {
         update.setCity(student.getCity());
         update.setAcademy(student.getAcademy());
         update.setDescription(student.getDescription());
-        update.setUsername(student.getUsername());
+        update.setEmail(student.getEmail());
         update.setPassword(student.getPassword());
 
         repository.save(update);

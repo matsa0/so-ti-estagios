@@ -21,13 +21,12 @@ public class Company implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 30)
+    @Column(length = 30)
     private String name;
-    @Column(nullable = false, length = 14)
+    @Column(length = 14)
     private String cnpj;
     private String password;
     private String releaseYear;
-    @Column(nullable = true)
     private String hqLocation;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)

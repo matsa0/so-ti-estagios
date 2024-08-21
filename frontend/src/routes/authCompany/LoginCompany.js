@@ -15,7 +15,7 @@ export default function LoginCompany() {
   const onPasswordChange = (e) => {
     setPassword(e.target.value)
   };
-  
+
 
   const isValidCompany = (companies) => {
     let loginSuccess = false
@@ -79,6 +79,7 @@ export default function LoginCompany() {
                   id="inputCnpj"
                   value={cnpj}
                   onChange={onCnpjChange}
+                  required
                 ></input>
               </div>
               <div className="form-group">
@@ -90,6 +91,7 @@ export default function LoginCompany() {
                   id="inputPassword"
                   value={password}
                   onChange={onPasswordChange}
+                  required
                 ></input>
               </div>
               <button type="submit" className="btn btn-primary">

@@ -7,31 +7,31 @@ import axios from 'axios'
 export default function Login() {
   let navigate = useNavigate()
 
-  const[username, setUsername] = useState("")
+  const[email, setEmail] = useState("")
   const[password, setPassword] = useState("")
 
-  const onUsernameChange = (e) => {
-    setUsername(e.target.value)
+  const onEmailChange = (e) => {
+    setEmail(e.target.value)
   }
   const onPasswordChange = (e) => {
     setPassword(e.target.value)
   }
 
 
-  const isValidLogin = (users) => {
+  const isValidLogin = (students) => {
     let loginSuccess = false
     //=== comparação estrita
-    for(let user of users) {
-      if(username === user.username && password === user.password) {
+    for(let student of students) {
+      if(email === student.email && password === student.password) {
         loginSuccess = true
         alert("Login successful!")
         break;
       }
-      else if(username === user.username && password !== user.password) {
+      else if(email === student.email && password !== student.password) {
         console.log("Incorrect password! Try again.")
         break;
       }
-      else if(username !== user.username) {
+      else if(student !== student.email) {
         console.log("Invalid user! Create a account.")
         break;
       }
@@ -42,14 +42,14 @@ export default function Login() {
 
 
   const onSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault() //stop reload after form submit
 
     try {
       const response = await axios.get("http://localhost:8080/api/v1/student")
 
       if(response.status === 200) {
-        const users = response.data
-        let validLogin = isValidLogin(users)
+        const students = response.data
+        let validLogin = isValidLogin(students)
 
         if(validLogin) {
           navigate("/home")
@@ -73,14 +73,15 @@ export default function Login() {
                 <h1>SÓ TI ESTÁGIOS</h1>
                 <form onSubmit={(e) => onSubmit(e)}>
                     <div className='form-group'>
-                        <label for="inputEmail">Username</label>
+                        <label for="inputEmail">Email</label>
                         <input 
-                        type='text' 
+                        type='email' 
                         className='form-control' 
-                        placeholder='Digite seu username' 
-                        id='inputUsername'
-                        onChange={(e) => onUsernameChange(e)}
-                        value={username}></input>
+                        placeholder='Digite seu email' 
+                        id='inputEmail'
+                        onChange={(e) => onEmailChange(e)}
+                        value={email}
+                        required></input>
                     </div>
                     <div className='form-group'>
                         <label for="inputPassword">Senha</label>
@@ -90,7 +91,8 @@ export default function Login() {
                         placeholder='Digite sua senha' 
                         id='inputPassword'
                         onChange={(e) => onPasswordChange(e)}
-                        value={password}></input>
+                        value={password}
+                        required></input>
                     </div>
                     <button type="submit" className="btn btn-primary">Entrar</button>
                 </form>

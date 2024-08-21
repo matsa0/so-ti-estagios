@@ -23,19 +23,16 @@ public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 30)
+    @Column(length = 30)
     private String firstName;
-    @Column(nullable = false, length = 30)
+    @Column(length = 30)
     private String lastName;
-    //@Column(nullable = false)
     private Date birthDate;
     private String city;
-    @Column(nullable = false)
     private String academy;
     private String description;
-    @Column(nullable = false)
-    private String username;
-    @Column(nullable = false)
+    @Column(unique = true)
+    private String email;
     private String password;
 
     @ManyToMany
@@ -47,7 +44,7 @@ public class Student implements Serializable {
     
     
     public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
-            String description, String username, String password, Set<Job> jobs) {
+            String description, String email, String password, Set<Job> jobs) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -55,13 +52,13 @@ public class Student implements Serializable {
         this.city = city;
         this.academy = academy;
         this.description = description;
-        this.username = username;
+        this.email = email;
         this.password = password;
         this.jobs = jobs;
     }
 
     public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
-            String description, String username, String password) {
+            String description, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -69,7 +66,7 @@ public class Student implements Serializable {
         this.city = city;
         this.academy = academy;
         this.description = description;
-        this.username = username;
+        this.email = email;
         this.password = password;
     }
 
@@ -118,11 +115,11 @@ public class Student implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getPassword() {
         return password;
