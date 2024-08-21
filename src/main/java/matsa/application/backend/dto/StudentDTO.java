@@ -14,7 +14,8 @@ public record StudentDTO(
     String city,
     String academy,
     String description,
-    String username
+    String username,
+    String password
 ) {
     
 }

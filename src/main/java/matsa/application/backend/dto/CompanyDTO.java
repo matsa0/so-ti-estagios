@@ -7,6 +7,7 @@ public record CompanyDTO(
     Long id,
     String name,
     String cnpj,
+    String password,
     String releaseYear,
     String hqLocation
 ) {
