@@ -33,23 +33,36 @@ export default function RegisterCompany() {
     const isValidRegister = (companies) => {
         if(password !== confirmPassword) {
             alert("Confirm your password!")
-            return false
+            return false;
         }
 
         for(let company of companies) {
             if(cnpj === company.cnpj) {
                 alert("CNPJ is already registered!")
-                return false    
+                return false;    
             }
         }
-        return true
+        return true;
     }
 
     const postCompany = async () => {
         try { 
+            const studentAlreadyLogged = localStorage.getItem("studentLogged")
+            const companyAlreadyLogged = localStorage.getItem("companyLogged")
+    
+            if(studentAlreadyLogged) {
+              alert("Already Logged as student. Log out first!")
+              return;
+            }
+            if(companyAlreadyLogged) {
+              alert("Already Logged as company. Log out first!") 
+              return;
+            }
+
             const response = await axios.post("http://localhost:8080/api/v1/company", companyData)
     
             if(response.status === 201) {
+                localStorage.setItem("companyLogged", JSON.stringify(response.data))
                 alert("Registered successfully!")
                 navigate("/homepage")
             }

@@ -19,25 +19,20 @@ export default function Login() {
 
 
   const isValidLogin = (students) => {
-    let loginSuccess = false
-    //=== comparação estrita
     for(let student of students) {
-      if(email === student.email && password === student.password) {
-        loginSuccess = true
-        alert("Login successful!")
-        break;
-      }
-      else if(email === student.email && password !== student.password) {
-        console.log("Incorrect password! Try again.")
-        break;
-      }
-      else if(student !== student.email) {
-        console.log("Invalid user! Create a account.")
-        break;
+      if(email === student.email) {
+        if(password === student.password) {
+          alert("Login successful!")
+          return student;
+        }
+        else {
+          alert("Incorrect password! Try again.")
+          return null;
+        }
       }
     }
-
-    return loginSuccess
+    console.log("Invalid student! Create a account.")
+    return null;
   }
 
 
@@ -49,15 +44,27 @@ export default function Login() {
 
       if(response.status === 200) {
         const students = response.data
-        let validLogin = isValidLogin(students)
+        const studentAlreadyLogged = localStorage.getItem("studentLogged")
+        const companyAlreadyLogged = localStorage.getItem("companyLogged")
 
-        if(validLogin) {
-          navigate("/home")
+        if(studentAlreadyLogged) {
+          alert("Already Logged as student. Log out first!")
+          return;
         }
-        else {
-          alert("Invalid Credentials!")
-          console.log(validLogin)
+        if(companyAlreadyLogged) {
+          alert("Already Logged as company. Log out first!") 
+          return;
         }
+
+        let studentLogged = isValidLogin(students)
+
+        if(studentLogged) {
+          localStorage.setItem("studentLogged", JSON.stringify(studentLogged))
+          navigate("/homepage")
+        }
+      }
+      else {
+        alert("HTTP Error: ", response.status)
       }
     }
     catch(error) {

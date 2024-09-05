@@ -18,27 +18,20 @@ export default function LoginCompany() {
 
 
   const isValidCompany = (companies) => {
-    let loginSuccess = false
-
     for(let company of companies) {
-      if(cnpj === company.cnpj && password === company.password) {
-        loginSuccess = true
-        break;
-      }
-      else if(cnpj === company.cnpj && password !== company.password) {
-        console.log("Incorrect Password! Try again.")
-        console.log(password)
-        console.log(company.password)
-        alert("Incorrect Password! Try again.")
-        break;
-      }
-      else {
-        console.log("Invalid user! Create a account.")
-        alert("Invalid user! Create a account.")
-        break;
+      if(cnpj === company.cnpj) {
+        if(password === company.password) {
+          alert("Successful Login!")
+          return company;
+        }
+        else {
+          alert("Incorrect Password! Try again.")
+          return null;
+        }
       }
     }
-    return loginSuccess
+    alert("Invalid company! Create a account.")
+    return null;
   }
 
   const onSubmit = async (e) => {
@@ -49,12 +42,27 @@ export default function LoginCompany() {
 
       if(response.status === 200) {
         const companies = response.data
+        const studentAlreadyLogged = localStorage.getItem("studentLogged")
+        const companyAlreadyLogged = localStorage.getItem("companyLogged")
+        
+        if(studentAlreadyLogged) {
+          alert("Already Logged as student. Log out first!")
+          return;
+        }
+        if(companyAlreadyLogged) {
+          alert("Already Logged as company. Log out first!") 
+          return;
+        }
+        
+        const companyLogged = isValidCompany(companies)
 
-        if(isValidCompany(companies) === true) {
-          console.log("Successful Login!")
-          alert("Successful Login!")
+        if(companyLogged) {
+          localStorage.setItem("companyLogged", JSON.stringify(companyLogged))
           navigate("/homepage")
         }
+      }
+      else {
+        alert("HTTP Error: ", response.status)
       }
     }
     catch(error) {
