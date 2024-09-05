@@ -1,7 +1,24 @@
 import React from 'react'
-import { Search, User } from 'lucide-react'
+import { LogOut, Search, User } from 'lucide-react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function Navbar({ userName }) {
+    const navigate = useNavigate("")
+
+    function logOut() {
+        const studentAlreadyLogged = localStorage.getItem("studentLogged")
+        const companyAlreadyLogged = localStorage.getItem("companyLogged")
+
+        if(studentAlreadyLogged) {
+            localStorage.removeItem("studentLogged")
+            navigate("/")
+        }
+        if(companyAlreadyLogged) {
+            localStorage.removeItem("companyLogged")
+            navigate("/loginCompany")
+        }
+    }
+
   return (
     <div>
         <nav class="navbar bg-body-tertiary">
@@ -12,8 +29,9 @@ export default function Navbar({ userName }) {
                     <button class="btn btn-outline-success" type="submit"><Search /></button>
                 </form>
                 <div className='profile-infos d-flex'>
-                    <User/>
+                    <User style={{cursor: 'pointer'}}/>
                     {userName}
+                    <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
                 </div>
             </div>
         </nav>
