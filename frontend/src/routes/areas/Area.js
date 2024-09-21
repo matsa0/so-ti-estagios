@@ -27,13 +27,15 @@ export default function Area() {
     if(areaName === "uxui") {
       return "UX/UI";
     }
-    
+
     return null;
   }
 
   return (
     <div>
         <Navbar areaName={validateAreaName(areaName)} />
+
+        
     </div>
   )
 }

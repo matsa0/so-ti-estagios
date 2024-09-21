@@ -4,9 +4,6 @@ import Navbar from './Navbar'
 import Card from './Card'
 
 export default function Homepage() {
-
-
-
   return (
     <div>
         <Navbar />

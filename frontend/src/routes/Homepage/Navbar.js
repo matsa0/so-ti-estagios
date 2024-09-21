@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LogOut, Search, User } from 'lucide-react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-export default function Navbar({ userName }) {
+export default function Navbar() {
     const navigate = useNavigate("")
+    const [userName, setUserName] = useState(null)
+
+    useEffect(() => {
+        const studentAlreadyLogged = localStorage.getItem("studentLogged")
+        const companyAlreadyLogged = localStorage.getItem("companyLogged")
+
+        setUserName(getUserNameLogged(studentAlreadyLogged, companyAlreadyLogged))
+    })
 
     function logOut() {
         const studentAlreadyLogged = localStorage.getItem("studentLogged")
@@ -19,6 +27,23 @@ export default function Navbar({ userName }) {
         }
     }
 
+    function getUserNameLogged(student, company) {
+        if(student) {
+            const studentJson = JSON.parse(student)
+            const studentLogged = studentJson.firstName + " " + studentJson.lastName
+
+            return studentLogged;
+        }
+        if(company) {
+            const companyJson = JSON.parse(company)
+            const companyLogged = companyJson.name
+
+            return companyLogged;
+        }
+
+        return null;
+    }
+
   return (
     <div>
         <nav class="navbar bg-body-tertiary">
@@ -30,7 +55,7 @@ export default function Navbar({ userName }) {
                 </form>
                 <div className='profile-infos d-flex'>
                     <User style={{cursor: 'pointer'}}/>
-                    {userName}
+                    {userName ? <span>{userName}</span> : <a onClick={() => {navigate("/")}}>Faça Login</a>}
                     <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
                 </div>
             </div>
