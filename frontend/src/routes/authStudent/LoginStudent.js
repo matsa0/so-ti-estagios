@@ -17,6 +17,11 @@ export default function Login() {
     setPassword(e.target.value)
   }
 
+  useEffect(() => {
+    localStorage.removeItem("studentLogged")
+    localStorage.removeItem("companyLogged")
+  }, []) //only executed once, when the component(App.js) is render
+
   const isValidLogin = (students) => {
     for(let student of students) {
       if(email === student.email) {
@@ -43,19 +48,7 @@ export default function Login() {
 
       if(response.status === 200) {
         const students = response.data
-        const studentAlreadyLogged = localStorage.getItem("studentLogged")
-        const companyAlreadyLogged = localStorage.getItem("companyLogged")
-
-        if(studentAlreadyLogged) {
-          alert("Already Logged as student. Log out first!")
-          return;
-        }
-        if(companyAlreadyLogged) {
-          alert("Already Logged as company. Log out first!") 
-          return;
-        }
-
-        let studentLogged = isValidLogin(students)
+        const studentLogged = isValidLogin(students)
 
         if(studentLogged) {
           localStorage.setItem("studentLogged", JSON.stringify(studentLogged))

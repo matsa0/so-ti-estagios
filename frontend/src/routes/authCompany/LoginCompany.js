@@ -42,18 +42,6 @@ export default function LoginCompany() {
 
       if(response.status === 200) {
         const companies = response.data
-        const studentAlreadyLogged = localStorage.getItem("studentLogged")
-        const companyAlreadyLogged = localStorage.getItem("companyLogged")
-        
-        if(studentAlreadyLogged) {
-          alert("Already Logged as student. Log out first!")
-          return;
-        }
-        if(companyAlreadyLogged) {
-          alert("Already Logged as company. Log out first!") 
-          return;
-        }
-        
         const companyLogged = isValidCompany(companies)
 
         if(companyLogged) {

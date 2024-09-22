@@ -6,14 +6,9 @@ import LoginCompany from './routes/authCompany/LoginCompany';
 import RegisterCompany from './routes/authCompany/RegisterCompany';
 import Homepage from './routes/Homepage/Homepage';
 import Area from './routes/areas/Area';
-import { useEffect } from 'react';
+import Job from './routes/areas/Job';
 
 function App() {
-  useEffect(() => {
-    localStorage.removeItem("studentLogged")
-    localStorage.removeItem("companyLogged")
-  }, []) //only executed once, when the component(App.js) is render
-
   return (
     <div className="App">
 
@@ -28,6 +23,8 @@ function App() {
           <Route path='/homepage' element={<Homepage/>} />
 
           <Route path='/area/:areaName' element={<Area />}/>
+
+          <Route path='/area/:areaName/:id' element={<Job />} />
         </Routes>
       </Router>
     </div>
