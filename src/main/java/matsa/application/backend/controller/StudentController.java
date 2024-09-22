@@ -48,6 +48,13 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
 
+    @PostMapping("/{id}/apply/{jobId}")
+    public ResponseEntity<StudentDTO> applyForJob(@PathVariable("id") Long studentId, @PathVariable Long jobId) {
+        StudentDTO student = service.applyForJob(studentId, jobId);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<StudentDTO> update(@RequestBody Student obj) {
         StudentDTO student = service.update(obj);

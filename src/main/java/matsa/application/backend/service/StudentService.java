@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import matsa.application.backend.dto.StudentDTO;
+import matsa.application.backend.exception.AlreadyAppliedException;
 import matsa.application.backend.exception.ResourceNotFoundException;
 import matsa.application.backend.mapper.StudentMapper;
+import matsa.application.backend.model.Job;
 import matsa.application.backend.model.Student;
+import matsa.application.backend.repository.JobRepository;
 import matsa.application.backend.repository.StudentRepository;
 
 @Service
@@ -17,6 +20,8 @@ public class StudentService {
     
     @Autowired
     private StudentRepository repository;
+    @Autowired
+    private JobRepository jobRepository;
 
     public List<StudentDTO> findAll() {
         List<Student> students = repository.findAll();
@@ -34,6 +39,20 @@ public class StudentService {
 
     public StudentDTO create(Student obj) {
         Student student = repository.save(obj);
+
+        return StudentMapper.INSTANCE.studentToStudentDTO(student);
+    }
+
+    public StudentDTO applyForJob(Long studentId, Long jobId) {
+        Student student = repository.findById(studentId).orElseThrow(() -> new ResourceNotFoundException(studentId));
+        Job job =  jobRepository.findById(jobId).orElseThrow(() -> new ResourceNotFoundException(jobId));
+
+        if(student.getJobs().contains(job)) {
+            throw new AlreadyAppliedException(jobId);
+        }
+
+        student.getJobs().add(job);
+        repository.save(student);
 
         return StudentMapper.INSTANCE.studentToStudentDTO(student);
     }

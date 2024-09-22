@@ -20,5 +20,6 @@ public interface StudentMapper {
     @Mapping(source = "description", target = "description")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "password", target = "password")
+    @Mapping(source = "jobs", target = "jobs")
     StudentDTO studentToStudentDTO(Student student);
 }

@@ -27,4 +27,11 @@ public class CustomizedExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(eBody, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(AlreadyAppliedException.class)
+    public final ResponseEntity<ExceptionBody> handleAlreadyAppliedException(Exception ex, WebRequest wr) {
+        ExceptionBody eBody = new ExceptionBody(LocalDateTime.now(), HttpStatus.CONFLICT, ex.getMessage(), wr.getDescription(false));
+
+        return new ResponseEntity<>(eBody, HttpStatus.CONFLICT);
+    }
 }

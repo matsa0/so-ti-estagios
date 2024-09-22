@@ -24,11 +24,39 @@ export default function Job() {
 
   useEffect(() => {
     loadJob() 
-    console.log(job)
   }, [])
 
   if (!job) {
     return (<p>Loading...</p>) 
+  }
+
+  const applyToJob = async () => {
+    try {
+      const studentLogged = JSON.parse(localStorage.getItem("studentLogged"))
+      const response = await axios.post(`http://localhost:8080/api/v1/student/${studentLogged.id}/apply/${id}`)
+      console.log(response.status)
+      if(response.status === 201) {
+        alert("Candidatura realizada com sucesso!")
+      }
+      else {
+        alert("Erro ao candidatar na vaga!")
+        console.log("Applying status error: ", response.status)
+      }
+    }
+    catch(error) {
+      if(error.response) {
+        if(error.response.status === 409) {
+          alert("Você já é um candidato à esta vaga.")
+        }
+        else {
+          alert("Erro ao candidatar na vaga!");
+          console.log("Applying status error: ", error.response.status);
+        }
+      }
+      else {
+        console.log("Error applying to job: ", error)
+      }
+    }
   }
 
   return (
@@ -49,7 +77,7 @@ export default function Job() {
             <label>{job.company.hqLocation}</label>
           </div>
         </div>
-        <a class="btn btn-primary">Candidatar-se</a>
+        <a className="btn btn-primary" onClick={applyToJob}>Candidatar-se</a>
       </div>
     </div>
   )
