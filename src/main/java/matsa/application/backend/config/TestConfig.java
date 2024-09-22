@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 import matsa.application.backend.model.Company;
 import matsa.application.backend.model.Job;
 import matsa.application.backend.model.Student;
+import matsa.application.backend.model.enums.Area;
 import matsa.application.backend.model.enums.JobModality;
 import matsa.application.backend.repository.CompanyRepository;
 import matsa.application.backend.repository.JobRepository;
@@ -38,10 +39,11 @@ public class TestConfig implements CommandLineRunner {
         Student st2 = new Student(null, "Gabriel", "Silva", null, "João Monlevade", "Sistemas de Informação", "Hello! I'm looking for a job. Hire me!", "gab@gmail.com", "12345");
         studentRepository.save(st2);
 
-        Job job = new Job(null, "Java full-stack developer", "Spring Boot and React Java full-stack developer.", JobModality.REMOTE, "Xique-Xique - Bahia");
-        jobRepository.save(job);
-
         Company company = new Company(null, "Solartec", "12345678914561","1234", "2010", "São Paulo, Brasil.");
         companyRepository.save(company);
+
+        Job job = new Job(null, "Java full-stack developer", "Spring Boot and React Java full-stack developer.", JobModality.REMOTE, "Xique-Xique - Bahia", Area.SOFTWARE_DEVELOPMENT, company);
+        jobRepository.save(job);
+
     }
 }

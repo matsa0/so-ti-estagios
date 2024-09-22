@@ -10,7 +10,7 @@ import matsa.application.backend.dto.JobDTO;
 import matsa.application.backend.exception.ResourceNotFoundException;
 import matsa.application.backend.mapper.JobMapper;
 import matsa.application.backend.model.Job;
-
+import matsa.application.backend.model.enums.Area;
 import matsa.application.backend.repository.JobRepository;
 
 @Service
@@ -31,6 +31,14 @@ public class JobService {
         Job job = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 
         return JobMapper.INSTANCE.jobToJobDTO(job);
+    }
+
+    public List<JobDTO> findByArea(Area area) {
+        List<Job> jobs = repository.findByArea(area);
+
+        return jobs.stream()
+        .map(JobMapper.INSTANCE::jobToJobDTO)
+        .collect(Collectors.toList());
     }
 
     public JobDTO create(Job obj) {

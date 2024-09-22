@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import matsa.application.backend.model.enums.Area;
 import matsa.application.backend.model.enums.JobModality;
 
 @Entity
@@ -28,8 +33,11 @@ public class Job implements Serializable {
     @Column(nullable = false, length = 1000)
     private String description;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private JobModality modality;
     private String location;
+    @Enumerated(EnumType.STRING)
+    private Area area;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -37,14 +45,6 @@ public class Job implements Serializable {
 
     @ManyToMany(mappedBy = "jobs")
     private Set<Student> students = new HashSet<>();
-
-    public Job(Long id, String title, String description, JobModality modality, String location) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.modality = modality;
-        this.location = location;
-    }
 
     public Job(Long id, String title, String description, JobModality modality, String location, Company company,
             Set<Student> students) {
@@ -55,6 +55,16 @@ public class Job implements Serializable {
         this.location = location;
         this.company = company;
         this.students = students;
+    }
+
+    public Job(Long id, String title, String description, JobModality modality, String location, Area area, Company company) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.modality = modality;
+        this.location = location;
+        this.area = area;
+        this.company = company;
     }
 
     public Job() {
@@ -90,6 +100,7 @@ public class Job implements Serializable {
     public void setLocation(String location) {
         this.location = location;
     }
+    @JsonIgnore
     public Company getCompany() {
         return company;
     }
@@ -101,6 +112,12 @@ public class Job implements Serializable {
     }
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+    public Area getArea() {
+        return area;
+    }
+    public void setArea(Area area) {
+        this.area = area;
     }
     
     @Override

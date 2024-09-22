@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import matsa.application.backend.dto.JobDTO;
 import matsa.application.backend.model.Job;
+import matsa.application.backend.model.enums.Area;
 import matsa.application.backend.service.JobService;
 
 @RestController
@@ -39,6 +40,14 @@ public class JobController {
         JobDTO job = service.findById(id);
 
         return ResponseEntity.ok().body(job);
+    }
+
+    @GetMapping("/area/{area}")
+    public ResponseEntity<List<JobDTO>> findByArea(@PathVariable("area") String areaName) {
+        Area area = Area.valueOf(areaName.toUpperCase());
+        List<JobDTO> jobs = service.findByArea(area);
+
+        return new ResponseEntity<>(jobs, HttpStatus.OK);
     }
 
     @PostMapping

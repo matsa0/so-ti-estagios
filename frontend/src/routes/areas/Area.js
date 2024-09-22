@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
+import Card from './Card';
 
 export default function Area() {
   const { areaName } = useParams(); //extract
@@ -31,11 +32,16 @@ export default function Area() {
     return null;
   }
 
+  
   return (
     <div>
         <Navbar areaName={validateAreaName(areaName)} />
 
-        
+        <div class="container">
+            <div class="row row-cols-2">
+                <Card />
+            </div>
+        </div>
     </div>
   )
 }
