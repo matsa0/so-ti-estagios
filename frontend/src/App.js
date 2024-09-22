@@ -6,8 +6,14 @@ import LoginCompany from './routes/authCompany/LoginCompany';
 import RegisterCompany from './routes/authCompany/RegisterCompany';
 import Homepage from './routes/Homepage/Homepage';
 import Area from './routes/areas/Area';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    localStorage.removeItem("studentLogged")
+    localStorage.removeItem("companyLogged")
+  }, []) //only executed once, when the component(App.js) is render
+
   return (
     <div className="App">
 

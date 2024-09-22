@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../../styles/Login.css'
 import axios from 'axios'
@@ -16,7 +16,6 @@ export default function Login() {
   const onPasswordChange = (e) => {
     setPassword(e.target.value)
   }
-
 
   const isValidLogin = (students) => {
     for(let student of students) {

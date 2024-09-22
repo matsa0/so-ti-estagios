@@ -1,18 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Card = ({ name, handleClick }) => {
+const Card = ({ job }) => {
     const navigate = useNavigate("")
 
     const handleCardClick = (areaName) => {
-        navigate(`/area/${areaName}`)
+        navigate(`/area/${areaName}/${job.id}`)
     }
 
   return (
     <div>
-        <div onClick={() => handleCardClick(handleClick)} className='card p-2 m-3' style={{width: '20 rem'}}>
-            <label >{name}</label>
-            <a href="#" class="btn btn-primary">Visualizar vagas</a>
+        <div className='card p-2 m-3' style={{width: '20 rem'}}>
+            <label >{job.name}</label>
+            <label></label>
+            <a onClick={() => handleCardClick(handleClick)} class="btn btn-primary">Visualizar vaga</a>
         </div>
     </div>
   )
