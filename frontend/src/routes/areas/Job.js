@@ -33,8 +33,15 @@ export default function Job() {
   const applyToJob = async () => {
     try {
       const studentLogged = JSON.parse(localStorage.getItem("studentLogged"))
+      const companyLogged = JSON.parse(localStorage.getItem("companyLogged"))
+
+      if(companyLogged) {
+        alert("Empresas não podem se candidatar à vagas!")
+        return;
+      }
+
       const response = await axios.post(`http://localhost:8080/api/v1/student/${studentLogged.id}/apply/${id}`)
-      console.log(response.status)
+
       if(response.status === 201) {
         alert("Candidatura realizada com sucesso!")
       }
