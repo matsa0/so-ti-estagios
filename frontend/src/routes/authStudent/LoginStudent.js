@@ -35,7 +35,7 @@ export default function Login() {
         }
       }
     }
-    console.log("Invalid student! Create a account.")
+   alert("Invalid student! Create a account.")
     return null;
   }
 

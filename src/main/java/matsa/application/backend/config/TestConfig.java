@@ -33,10 +33,10 @@ public class TestConfig implements CommandLineRunner {
         System.out.println("Running tests...");
         System.out.println("Running tests...");
         System.out.println("Running tests...");
-        Student st1 = new Student(null, "Matheus", "Azevedo", null, "João Monlevade", "Sistemas de Informação", "Hello! I'm looking for a job. Hire me!", "matsa@gmail.com", "12345");
+        Student st1 = new Student(null, "Matheus", "Azevedo", null, "João Monlevade", "Sistemas de Informação", "Universidade Federal de Ouro Preto", "Hello! I'm looking for a job. Hire me!", "matsa@gmail.com", "12345");
         studentRepository.save(st1);
         
-        Student st2 = new Student(null, "Gabriel", "Silva", null, "João Monlevade", "Sistemas de Informação", "Hello! I'm looking for a job. Hire me!", "gab@gmail.com", "12345");
+        Student st2 = new Student(null, "Gabriel", "Silva", null, "João Monlevade", "Sistemas de Informação", "Universidade Federal de Ouro Preto", "Hello! I'm looking for a job. Hire me!", "gab@gmail.com", "12345");
         studentRepository.save(st2);
 
         Company company = new Company(null, "Solartec", "12345678914561","1234", "2010", "São Paulo, Brasil.");

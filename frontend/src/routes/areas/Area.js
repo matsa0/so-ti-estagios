@@ -3,7 +3,6 @@ import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import Card from './Card';
 import axios from 'axios';
-import { Car } from 'lucide-react';
 
 export default function Area() {
   const { areaName } = useParams(); //extract

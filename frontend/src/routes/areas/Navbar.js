@@ -76,14 +76,18 @@ export default function Navbar({ areaName }) {
                     onClick={() => navigate("/homepage")}><ArrowLeftCircle /></a>
                     {validateAreaName(areaName)}
                 </div>
-                <div className='profile-infos d-flex'>
-                    <User style={{cursor: 'pointer'}}/>
+                <div className=' d-flex'>
+                  <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
+                    <User />
                     {
                         userName ? 
                         <span>{userName}</span> : 
                         <a onClick={() => {navigate("/")}}>Faça Login</a>
                     }   
-                    <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                  </div>
+                    <>
+                     <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                    </>
                 </div>
             </div>
         </nav>

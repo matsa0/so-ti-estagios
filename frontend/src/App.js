@@ -7,6 +7,7 @@ import RegisterCompany from './routes/authCompany/RegisterCompany';
 import Homepage from './routes/Homepage/Homepage';
 import Area from './routes/areas/Area';
 import Job from './routes/areas/Job';
+import Profile from './routes/profile/Profile';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path='/area/:areaName' element={<Area />}/>
 
           <Route path='/area/:areaName/:id' element={<Job />} />
+
+          <Route path='/profile' element={<Profile />}/>
         </Routes>
       </Router>
     </div>

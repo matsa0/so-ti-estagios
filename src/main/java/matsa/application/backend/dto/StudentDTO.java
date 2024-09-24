@@ -7,13 +7,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import matsa.application.backend.model.Job;
 
-@JsonPropertyOrder({"id", "firstName", "lastName", "birthDate", "academy", "description", "city", "email"})
+@JsonPropertyOrder({"id", "firstName", "lastName", "birthDate","college", "academy", "description", "city", "email"})
 public record StudentDTO(
     Long id,
     String firstName,
     String lastName,
     Date birthDate,
     String city,
+    String college,
     String academy,
     String description,
     String email,

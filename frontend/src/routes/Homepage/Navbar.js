@@ -53,10 +53,18 @@ export default function Navbar() {
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit"><Search /></button>
                 </form>
-                <div className='profile-infos d-flex'>
-                    <User style={{cursor: 'pointer'}}/>
-                    {userName ? <span>{userName}</span> : <a onClick={() => {navigate("/")}}>Faça Login</a>}
-                    <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                <div className=' d-flex'>
+                  <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
+                    <User />
+                    {
+                        userName ? 
+                        <span>{userName}</span> : 
+                        <a onClick={() => {navigate("/")}}>Faça Login</a>
+                    }   
+                  </div>
+                    <>
+                     <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                    </>
                 </div>
             </div>
         </nav>

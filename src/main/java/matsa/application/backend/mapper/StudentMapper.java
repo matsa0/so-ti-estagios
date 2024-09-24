@@ -16,6 +16,7 @@ public interface StudentMapper {
     @Mapping(source = "lastName", target = "lastName")
     @Mapping(source = "birthDate", target = "birthDate")
     @Mapping(source = "city", target = "city")
+    @Mapping(source = "college", target = "college")
     @Mapping(source = "academy", target = "academy")
     @Mapping(source = "description", target = "description")
     @Mapping(source = "email", target = "email")

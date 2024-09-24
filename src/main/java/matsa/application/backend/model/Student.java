@@ -1,9 +1,9 @@
 package matsa.application.backend.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,8 +27,9 @@ public class Student implements Serializable {
     private String firstName;
     @Column(length = 30)
     private String lastName;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String city;
+    private String college;
     private String academy;
     private String description;
     @Column(unique = true)
@@ -43,7 +44,7 @@ public class Student implements Serializable {
     private Set<Job> jobs = new HashSet<>();
     
     
-    public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
+    public Student(Long id, String firstName, String lastName, LocalDate birthDate, String city, String academy, String college,
             String description, String email, String password, Set<Job> jobs) {
         this.id = id;
         this.firstName = firstName;
@@ -51,13 +52,14 @@ public class Student implements Serializable {
         this.birthDate = birthDate;
         this.city = city;
         this.academy = academy;
+        this.college = college;
         this.description = description;
         this.email = email;
         this.password = password;
         this.jobs = jobs;
     }
 
-    public Student(Long id, String firstName, String lastName, Date birthDate, String city, String academy,
+    public Student(Long id, String firstName, String lastName, LocalDate birthDate, String city, String academy, String college,
             String description, String email, String password) {
         this.id = id;
         this.firstName = firstName;
@@ -65,6 +67,7 @@ public class Student implements Serializable {
         this.birthDate = birthDate;
         this.city = city;
         this.academy = academy;
+        this.college = college;
         this.description = description;
         this.email = email;
         this.password = password;
@@ -91,10 +94,10 @@ public class Student implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
     public String getCity() {
@@ -132,6 +135,12 @@ public class Student implements Serializable {
     }
     public void setJobs(Set<Job> jobs) {
         this.jobs = jobs;
+    }
+    public String getCollege() {
+        return college;
+    }
+    public void setCollege(String college) {
+        this.college = college;
     }
     
     @Override
