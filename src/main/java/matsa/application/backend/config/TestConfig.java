@@ -39,7 +39,7 @@ public class TestConfig implements CommandLineRunner {
         Student st2 = new Student(null, "Gabriel", "Silva", null, "João Monlevade", "Sistemas de Informação", "Universidade Federal de Ouro Preto", "Hello! I'm looking for a job. Hire me!", "gab@gmail.com", "12345");
         studentRepository.save(st2);
 
-        Company company = new Company(null, "Solartec", "12345678914561","1234", "2010", "São Paulo, Brasil.");
+        Company company = new Company(null, "Solartec", "12345678914561","1234", "2010", "São Paulo, Brasil.", "Solartec, uma empresa de tecnologia solar.");
         companyRepository.save(company);
 
         Job job = new Job(null, "Java full-stack developer", "Spring Boot and React Java full-stack developer.", JobModality.REMOTE, "Xique-Xique - Bahia", Area.SOFTWARE_DEVELOPMENT, company);

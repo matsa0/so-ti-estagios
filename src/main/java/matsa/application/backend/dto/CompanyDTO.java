@@ -9,7 +9,8 @@ public record CompanyDTO(
     String cnpj,
     String password,
     String releaseYear,
-    String hqLocation
+    String hqLocation,
+    String about
 ) {
     
 }

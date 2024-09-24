@@ -30,30 +30,33 @@ public class Company implements Serializable {
     private String password;
     private String releaseYear;
     private String hqLocation;
+    private String about;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Job> jobs = new ArrayList<>();
 
-    public Company(Long id, String name, String cnpj, String password, String releaseYear, String hqLocation, List<Job> jobs) {
+    public Company(Long id, String name, String cnpj, String password, String releaseYear, String hqLocation, String about, List<Job> jobs) {
         this.id = id;
         this.name = name;
         this.cnpj = cnpj;
         this.password = password;
         this.releaseYear = releaseYear;
         this.hqLocation = hqLocation;
+        this.about = about;
         this.jobs = jobs;
     }
 
     public Company() {
     }
 
-    public Company(Long id, String name, String cnpj, String password, String releaseYear, String hqLocation) {
+    public Company(Long id, String name, String cnpj, String password, String releaseYear, String hqLocation, String about) {
         this.id = id;
         this.name = name;
         this.cnpj = cnpj;
         this.password = password;
         this.releaseYear = releaseYear;
         this.hqLocation = hqLocation;
+        this.about = about;
     }
 
     public Long getId() {
@@ -98,6 +101,12 @@ public class Company implements Serializable {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getAbout() {
+        return about;
+    }
+    public void setAbout(String about) {
+        this.about = about;
     }
 
     @Override

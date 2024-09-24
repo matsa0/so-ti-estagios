@@ -46,6 +46,7 @@ public class CompanyService {
         update.setCnpj(obj.getCnpj());
         update.setReleaseYear(obj.getReleaseYear());
         update.setHqLocation(obj.getHqLocation());
+        update.setAbout(obj.getAbout());
         
         repository.save(update);
 

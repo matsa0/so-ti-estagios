@@ -65,6 +65,7 @@ public class StudentService {
         update.setLastName(student.getLastName());
         update.setBirthDate(student.getBirthDate());
         update.setCity(student.getCity());
+        update.setCollege(student.getCollege());
         update.setAcademy(student.getAcademy());
         update.setDescription(student.getDescription());
         update.setEmail(student.getEmail());

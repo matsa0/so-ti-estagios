@@ -17,5 +17,6 @@ public interface CompanyMapper {
     @Mapping(source = "password", target = "password")
     @Mapping(source = "releaseYear", target = "releaseYear")
     @Mapping(source = "hqLocation", target = "hqLocation")
+    @Mapping(source = "about", target = "about")
     CompanyDTO companyToCompanyDTO(Company company);
 }

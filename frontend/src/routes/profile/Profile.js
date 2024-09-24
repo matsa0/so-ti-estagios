@@ -26,16 +26,17 @@ export default function Profile() {
 
       <div className='container'>
         <div className='row'>
-            {user.firstName?
-            <>
-                <h1>Olá, {user.firstName + " " + user.lastName + "!"}</h1>
-                <FormStudent user={user} />
-            </>
-            : 
-            <>
-                <h1>Olá, {user.name + "!"}</h1>
-                <FormCompany user={user} />
-            </>
+            {
+              user.firstName ?
+              <>
+                  <h1>Olá, {user.firstName + " " + user.lastName + "!"}</h1>
+                  <FormStudent user={user} />
+              </>
+              : 
+              <>
+                  <h1>Olá, {user.name + "!"}</h1>
+                  <FormCompany user={user} />
+              </>
             }
         </div>
       </div>

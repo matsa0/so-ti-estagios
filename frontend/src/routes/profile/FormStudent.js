@@ -55,7 +55,7 @@ export default function FormStudent({ user }) {
             const response = await axios.put(`http://localhost:8080/api/v1/student/${user.id}`, userData) 
 
             if(response.status === 200) {
-                alert("Informações atualizadas com sucesso")
+                alert("Informações atualizadas com sucesso!")
             }
             else {
                 console.log("Status error: ", response.status)
