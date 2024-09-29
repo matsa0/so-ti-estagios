@@ -1,6 +1,7 @@
 package matsa.application.backend.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import matsa.application.backend.dto.JobDTO;
 import matsa.application.backend.dto.StudentDTO;
 import matsa.application.backend.model.Student;
 import matsa.application.backend.service.StudentService;
@@ -39,6 +41,13 @@ public class StudentController {
         StudentDTO student = service.findById(id);
 
         return ResponseEntity.ok().body(student);
+    }
+
+    @GetMapping("/{id}/jobs")
+    public ResponseEntity<Set<JobDTO>> findJobs(@PathVariable Long id) {
+        Set<JobDTO> jobs = service.findJobs(id);
+
+        return ResponseEntity.ok().body(jobs);
     }
 
     @PostMapping

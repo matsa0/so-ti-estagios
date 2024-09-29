@@ -1,14 +1,17 @@
 package matsa.application.backend.service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import matsa.application.backend.dto.JobDTO;
 import matsa.application.backend.dto.StudentDTO;
 import matsa.application.backend.exception.AlreadyAppliedException;
 import matsa.application.backend.exception.ResourceNotFoundException;
+import matsa.application.backend.mapper.JobMapper;
 import matsa.application.backend.mapper.StudentMapper;
 import matsa.application.backend.model.Job;
 import matsa.application.backend.model.Student;
@@ -35,6 +38,15 @@ public class StudentService {
         Student student = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
 
         return StudentMapper.INSTANCE.studentToStudentDTO(student);
+    }
+
+    public Set<JobDTO> findJobs(Long id) {
+        Student student = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
+        Set<Job> jobs = student.getJobs();
+
+        return jobs.stream()
+        .map(JobMapper.INSTANCE::jobToJobDTO)
+        .collect(Collectors.toSet());
     }
 
     public StudentDTO create(Student obj) {
