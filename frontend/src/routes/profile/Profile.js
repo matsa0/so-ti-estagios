@@ -36,7 +36,6 @@ export default function Profile() {
           const data = response.data
 
           setPublishedJobs(data.jobs)
-          console.log(data.jobs)
         }
       } catch(error) {
         alert("Undefined Error!")
@@ -89,22 +88,21 @@ export default function Profile() {
               </>
               : 
               <>
-                  <h1>Olá, {user.name + "!"}</h1>
-                  <button className="btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga</button>
-                  <FormCompany user={user} />
-            
-                  <h2>Vagas publicadas</h2>
-                    {publishedJobs.map(job => {
-                      return (
-                        <div key={job.id} className='card p-2 m-3'>
-                          <label>{job.title}</label>
-                          <label>{job.area}</label>
-                          <label>{job.modality}</label>
-                          <a onClick={() => navigate(`/publishedJob/${job.id}`)} className="btn btn-primary">Visualizar candidaturas</a>
-                        </div>
-                      )
-                    })} 
-
+                <h1>Olá, {user.name + "!"}</h1>
+                <button className="btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga</button>
+                <FormCompany user={user} />
+          
+                <h2>Vagas publicadas</h2>
+                  {publishedJobs.map(job => {
+                    return (
+                      <div key={job.id} className='card p-2 m-3'>
+                        <label>{job.title}</label>
+                        <label>{job.area}</label>
+                        <label>{job.modality}</label>
+                        <a onClick={() => navigate(`/publishedJob/${job.id}`)} className="btn btn-primary">Visualizar candidaturas</a>
+                      </div>
+                    )
+                  })} 
               </>
             }
         </div>
