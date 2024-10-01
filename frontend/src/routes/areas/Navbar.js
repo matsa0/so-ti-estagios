@@ -12,7 +12,7 @@ export default function Navbar({ areaName }) {
         const companyAlreadyLogged = localStorage.getItem("companyLogged")
 
         setUserName(getUserNameLogged(studentAlreadyLogged, companyAlreadyLogged))
-    })
+    }, [])
 
     const validateAreaName = () => {
         if(areaName === "software_development") {

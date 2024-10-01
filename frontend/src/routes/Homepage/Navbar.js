@@ -11,7 +11,7 @@ export default function Navbar() {
         const companyAlreadyLogged = localStorage.getItem("companyLogged")
 
         setUserName(getUserNameLogged(studentAlreadyLogged, companyAlreadyLogged))
-    })
+    }, [])
 
     function logOut() {
         const studentAlreadyLogged = localStorage.getItem("studentLogged")
