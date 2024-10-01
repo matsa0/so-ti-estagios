@@ -18,5 +18,6 @@ public interface JobMapper {
     @Mapping(source = "modality", target = "modality")
     @Mapping(source = "area", target = "area")
     @Mapping(source = "company", target = "company")
+    @Mapping(source = "students", target = "students")
     JobDTO jobToJobDTO(Job job);
 }

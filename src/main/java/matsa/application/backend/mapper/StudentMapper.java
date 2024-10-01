@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 import matsa.application.backend.dto.StudentDTO;
+import matsa.application.backend.dto.StudentIdDTO;
 import matsa.application.backend.model.Student;
 
 @Mapper
@@ -23,4 +24,7 @@ public interface StudentMapper {
     @Mapping(source = "password", target = "password")
     @Mapping(source = "jobs", target = "jobs")
     StudentDTO studentToStudentDTO(Student student);
+
+    @Mapping(source = "id", target = "id")
+    StudentIdDTO studentToStudentIdDTO(Student student);
 }

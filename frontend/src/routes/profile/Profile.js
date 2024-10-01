@@ -100,7 +100,7 @@ export default function Profile() {
                           <label>{job.title}</label>
                           <label>{job.area}</label>
                           <label>{job.modality}</label>
-                          <a onClick={() => navigate(`/area/${String(job.area).toLowerCase()}/${job.id}`)} className="btn btn-primary">Visualizar candidaturas</a>
+                          <a onClick={() => navigate(`/publishedJob/${job.id}`)} className="btn btn-primary">Visualizar candidaturas</a>
                         </div>
                       )
                     })} 

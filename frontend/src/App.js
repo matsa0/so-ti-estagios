@@ -9,6 +9,8 @@ import Area from './routes/areas/Area';
 import Job from './routes/areas/Job';
 import Profile from './routes/profile/Profile';
 import PublishJob from './routes/job/PublishJob';
+import ProfileAppliedStudent from './routes/profile/ProfileAppliedStudent';
+import PublishedJob from './routes/job/PublishedJob';
 
 function App() {
   return (
@@ -31,6 +33,10 @@ function App() {
           <Route path='/profile' element={<Profile />}/>
 
           <Route path='/publishJob' element={<PublishJob />}/>
+
+          <Route path='/publishedJob/:id' element={<PublishedJob />}/>
+
+          <Route path='/profileAppliedStudent/:id' element={<ProfileAppliedStudent />} />
         </Routes>
       </Router>
     </div>
