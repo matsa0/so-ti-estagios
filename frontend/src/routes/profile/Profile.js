@@ -13,7 +13,7 @@ export default function Profile() {
 
     const getAppliedJobs = useCallback(async () => { //prevent the function from being recreated every time the component re-renders
       if(!user.id) return
-      
+
       try {
         const response = await axios.get(`http://localhost:8080/api/v1/student/${user.id}/jobs`)
 
@@ -69,7 +69,7 @@ export default function Profile() {
               : 
               <>
                   <h1>Olá, {user.name + "!"}</h1>
-                  <button className="btn btn-primary" onClick={() => {navigate("/addJob")}}>Ofertar uma vaga</button>
+                  <button className="btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga</button>
                   <FormCompany user={user} />
               </>
             }

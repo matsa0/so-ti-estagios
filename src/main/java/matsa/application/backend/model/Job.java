@@ -30,7 +30,7 @@ public class Job implements Serializable {
     private Long id;
     @Column(nullable = false, length = 40)
     private String title;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 5000)
     private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

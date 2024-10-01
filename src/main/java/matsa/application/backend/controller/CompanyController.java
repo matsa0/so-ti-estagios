@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import matsa.application.backend.dto.CompanyDTO;
+import matsa.application.backend.dto.JobDTO;
 import matsa.application.backend.model.Company;
+import matsa.application.backend.model.Job;
 import matsa.application.backend.service.CompanyService;
 
 @RestController
@@ -47,6 +49,13 @@ public class CompanyController {
         CompanyDTO company = service.create(obj);
 
         return new ResponseEntity<>(company, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/{id}/addJob")
+    public ResponseEntity<JobDTO> publishJob(@PathVariable("id") Long companyId, @RequestBody Job obj) {
+        JobDTO job = service.publishJob(companyId, obj);
+
+        return new ResponseEntity<>(job, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
