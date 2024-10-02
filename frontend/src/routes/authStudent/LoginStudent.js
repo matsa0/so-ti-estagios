@@ -72,7 +72,7 @@ export default function Login() {
             <div className='row'>
               <div className='logo d-flex'>
                 <h1>SÓ TI ESTÁGIOS</h1> 
-                <label className='iconSearch'><SearchCode size={42  } /></label>
+                <label className='iconSearch'><SearchCode size={42}/></label>
               </div>
                 <form className='loginForm' onSubmit={(e) => onSubmit(e)}>
                     <div className='form-group'>
