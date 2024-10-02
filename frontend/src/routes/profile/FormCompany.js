@@ -36,8 +36,6 @@ export default function FormCompany({ user }) {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    console.log(userData)
-
     try{
       const response = await axios.put(`http://localhost:8080/api/v1/company/${user.id}`, userData)
 

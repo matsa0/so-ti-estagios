@@ -11,8 +11,8 @@ import Profile from './routes/profile/Profile';
 import PublishJob from './routes/job/PublishJob';
 import ProfileAppliedStudent from './routes/profile/ProfileAppliedStudent';
 import PublishedJob from './routes/job/PublishedJob';
-import { Edit } from 'lucide-react';
-import EditJob from './routes/job/EditJob';
+import EditJob from './routes/job/FormJob';
+import FormJob from './routes/job/FormJob';
 
 function App() {
   return (
@@ -40,8 +40,8 @@ function App() {
 
           <Route path='/profileAppliedStudent/:id' element={<ProfileAppliedStudent />} />
 
-          <Route path='/editJob/:id' element={<EditJob />}/>
-          
+          <Route path='/editJob/:id' element={<FormJob />}/>
+
           <Route />
         </Routes>
       </Router>

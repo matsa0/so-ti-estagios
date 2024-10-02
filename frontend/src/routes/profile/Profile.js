@@ -50,12 +50,10 @@ export default function Profile() {
         if(response.status === 204) {
           alert("Vaga excluída com sucesso!")
           //filter creates an array with every jobs, except the one that is equal to jobId
-          console.log("Before: ", publishedJobs)
           setPublishedJobs(previousJobs => previousJobs.filter(job => ( 
             job.id !== jobId
           ))
         )
-        console.log("After: ", publishedJobs)
         }
       } catch(error) {
         console.log(publishedJobs)
@@ -118,7 +116,7 @@ export default function Profile() {
                     return (
                       <div key={job.id} className='card p-2 m-3'>
                         <div className='d-flex'>
-                          <label onClick={() => navigate(`/publishedJob/${job.id}`)} style={{cursor: 'pointer'}}><Pencil /></label>
+                          <label onClick={() => navigate(`/editJob/${job.id}`)} style={{cursor: 'pointer'}}><Pencil /></label>
                           <label onClick={() => removeJob(job.id)} style={{cursor: 'pointer'}}><Trash2 /></label>
                         </div>
                         <label>{job.title}</label>
