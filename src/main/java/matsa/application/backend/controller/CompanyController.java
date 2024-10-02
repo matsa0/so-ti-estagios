@@ -71,4 +71,11 @@ public class CompanyController {
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping("/{companyId}/job/{jobId}")
+    public ResponseEntity<?> deleteJobPublishedByCompany(@PathVariable Long companyId, @PathVariable Long jobId) {
+        service.deleteJobPublishedByCompany(companyId, jobId);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

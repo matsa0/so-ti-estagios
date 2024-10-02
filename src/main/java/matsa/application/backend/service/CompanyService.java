@@ -14,12 +14,16 @@ import matsa.application.backend.mapper.JobMapper;
 import matsa.application.backend.model.Company;
 import matsa.application.backend.model.Job;
 import matsa.application.backend.repository.CompanyRepository;
+import matsa.application.backend.repository.JobRepository;
 
 @Service
 public class CompanyService {
     
     @Autowired
     private CompanyRepository repository;
+
+    @Autowired
+    private JobRepository jobRepository;
 
     public List<CompanyDTO> findAll() {
         List<Company> companies = repository.findAll();
@@ -73,6 +77,24 @@ public class CompanyService {
             repository.deleteById(id);
         } catch(Exception e) {
             throw new ResourceNotFoundException(id);
+        }
+    }
+
+    public void deleteJobPublishedByCompany(Long companyId, Long jobId) {
+        try {
+            Company company = repository.findById(companyId).orElseThrow(() -> new ResourceNotFoundException(companyId));
+            Job job = jobRepository.findById(jobId).orElseThrow(() -> new ResourceNotFoundException(jobId));
+
+            if(company.getJobs().contains(job)) {
+                company.getJobs().remove(job);
+                jobRepository.delete(job);
+                
+                repository.save(company);
+            } else {
+                throw new ResourceNotFoundException(jobId);
+            }
+        } catch(Exception e) {
+            throw new ResourceNotFoundException(companyId);
         }
     }
 }
