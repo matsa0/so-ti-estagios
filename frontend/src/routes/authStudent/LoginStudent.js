@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../../styles/Login.css'
 import axios from 'axios'
+import { SearchCode } from 'lucide-react'
 
 
 export default function Login() {
@@ -69,8 +70,11 @@ export default function Login() {
       <div className='centerScreen'>
         <div className='container loginScope'>
             <div className='row'>
-                <h1>SÓ TI ESTÁGIOS</h1>
-                <form onSubmit={(e) => onSubmit(e)}>
+              <div className='logo d-flex'>
+                <h1>SÓ TI ESTÁGIOS</h1> 
+                <label className='iconSearch'><SearchCode size={42  } /></label>
+              </div>
+                <form className='loginForm' onSubmit={(e) => onSubmit(e)}>
                     <div className='form-group'>
                         <label for="inputEmail">Email</label>
                         <input 
@@ -95,10 +99,9 @@ export default function Login() {
                     </div>
                     <button type="submit" className="btn btn-primary">Entrar</button>
                 </form>
-                <div className='register-btn'>
-                    <p>Não possui cadastro? <Link to={"/register"}>Cadastre-se agora!</Link></p>
-                </div>
-                <Link to={"/loginCompany"}><button type="button" className="btn btn-success">Sou empresa!</button></Link>
+                <p>Não possui cadastro? <Link to={"/register"}><label className='register-btn'>Cadastre-se agora!</label></Link></p>
+              
+                <Link to={"/loginCompany"}><button type="button" className="companyBtn btn btn-success">Sou empresa</button></Link>
             </div>
         </div>
       </div>

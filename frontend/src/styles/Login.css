@@ -2,9 +2,72 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.457);
-    width: 476px;
+    color: white;
+    width: 500px;
     height: 523px;
+    text-align: left;
+}
+
+.logo {
+    color: #86C232;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.logo h1 {
+    font-weight: bold;
+    padding-right: 0.4rem;
+}
+
+.loginForm .form-group {
+    padding: 0 0 1.5rem 0;
+}
+
+.form-control {
+    border: solid 2px hsl(85, 59%, 48%);
+    color: white;
+    background-color: transparent;
+}
+.form-control:focus {
+    border: solid 2px #86C232;
+    color: white;
+    background-color: transparent;
+}
+.form-control::placeholder {
+    color: white;
+    opacity: .5;
+}
+
+.loginForm button {
+    width: 5rem;
+    background-color: transparent;
+    border: solid 2px #86C232;
+    color: #86C232;
+}
+.loginForm button:hover {
+    background-color: #86C232;
+    color: white;
+    border: solid 2px #86C232;
+}
+
+.register-btn {
+    padding-top: 1rem;
+    color: #86C232;
+    cursor: pointer;
+}
+.register-btn:hover {
+    transition: .2s;
+    color: #6e9f2a;
+    cursor: pointer;
+}
+
+.companyBtn {
+    background-color: #86C232; 
+    color: white;
+}
+
+.companyBtn:hover {
+    background-color: #6e9f2a;
+    cursor: pointer;
 }
