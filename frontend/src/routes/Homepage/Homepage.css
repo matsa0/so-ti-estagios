@@ -96,3 +96,6 @@
     background-color: #61892F;
     border: none;
 }
+.cardArea button:hover {
+    background-color: rgb(84, 121, 32);
+}

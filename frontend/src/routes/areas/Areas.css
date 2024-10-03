@@ -1,0 +1,51 @@
+.areaNavbar {
+    background-color: transparent !important; 
+    padding: 1rem; 
+    border-bottom: solid 1px #86C232;
+}
+
+.areaName {
+    align-items: center;
+}
+
+.areaName a {
+    padding-right: 5px;
+}
+.areaName label {
+    color: white;
+    font-size: 18px;
+}
+
+/* Card */
+.cardJob {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #474b4f;
+    border-radius: 7px;
+    margin: 2rem;
+    padding: 20px;
+    width: 500px;
+    height: 200px;
+    margin-top: 3rem;
+}
+
+.cardJob label {
+    color: white;
+}
+
+.cardJob .jobTitle {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.cardJob button {
+    width: 50%;
+    background-color: #61892F;
+    border: none;
+    margin-top: 15px;
+}
+.cardJob button:hover {
+    background-color: rgb(84, 121, 32); 
+}

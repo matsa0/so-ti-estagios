@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Areas.css'
+import { Building2 } from 'lucide-react';
 
 const Card = ({ job }) => {
     const navigate = useNavigate("")
@@ -11,12 +13,10 @@ const Card = ({ job }) => {
 
   return (
     <div>
-        <div className='card p-2 m-3'>
-            <label>{job.title}</label>
-            <label>{job.company.name}</label>
-            <label>{job.modality}</label>
-            <label>{job.location}</label>
-            <a onClick={() => handleCardClick(areaName)} class="btn btn-primary">Visualizar vaga</a>
+        <div className='cardJob '>
+            <label className='jobTitle'>{job.title}</label>
+            <label className='jobComanyName'>{job.company.name} <Building2 /></label>
+            <button onClick={() => handleCardClick(areaName)} class="btn btn-primary">Visualizar vaga</button>  
         </div>
     </div>
   )

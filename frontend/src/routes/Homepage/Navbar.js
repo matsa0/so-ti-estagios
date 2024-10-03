@@ -95,7 +95,7 @@ export default function Navbar() {
                     aria-label="Search"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)} />
-                    <button className="searchBtn btn btn-outline-success" type="submit"><Search /></button>
+                    <button className="searchBtn btn btn-outline-success" type="submit"><Search size={25} /></button>
                 </form>
                 <div className='d-flex'>
                   <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
@@ -107,7 +107,7 @@ export default function Navbar() {
                     }   
                   </div>
                     <>
-                     <label className='logOutBtn'><LogOut onClick={logOut} style={{cursor: 'pointer'}} /></label>
+                     <label className='logOutBtn'><LogOut onClick={logOut} size={25} style={{cursor: 'pointer'}} /></label>
                     </>
                 </div>
             </div>

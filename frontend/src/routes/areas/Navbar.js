@@ -2,6 +2,8 @@ import React from 'react'
 import { LogOut, User, ArrowLeftCircle } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { SearchCode } from 'lucide-react'
+import './Areas.css'
 
 export default function Navbar({ areaName }) {
     const navigate = useNavigate("");
@@ -68,13 +70,16 @@ export default function Navbar({ areaName }) {
 
   return (
     <div>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand">SÓ TI ESTÁGIOS</a>
-                <div class="d-flex justify-content-center">
+        <nav class="areaNavbar navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <div className='logoNavbar d-flex' onClick={() => navigate("/homepage")}>
+                    <a className="navbar-brand">SÓ TI ESTÁGIOS</a>
+                    <label><SearchCode size={30} /></label>
+                </div>
+                <div class="areaName d-flex justify-content-center">
                     <a style={{cursor: 'pointer'}} 
-                    onClick={() => navigate("/homepage")}><ArrowLeftCircle /></a>
-                    {validateAreaName(areaName)}
+                    onClick={() => navigate("/homepage")}><ArrowLeftCircle size={25}/></a>
+                    <label>{validateAreaName(areaName)}</label>
                 </div>
                 <div className=' d-flex'>
                   <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
@@ -86,7 +91,7 @@ export default function Navbar({ areaName }) {
                     }   
                   </div>
                     <>
-                     <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                     <label className='logOutBtn'><LogOut size={25} onClick={logOut} style={{cursor: 'pointer'}} /></label>
                     </>
                 </div>
             </div>
