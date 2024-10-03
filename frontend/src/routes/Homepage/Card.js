@@ -10,9 +10,9 @@ const Card = ({ name, handleClick }) => {
 
   return (
     <div>
-        <div className='card p-2 m-3' style={{width: '18 rem'}}>
+        <div className='cardArea'>
             <label >{name}</label>
-            <a onClick={() => handleCardClick(handleClick)} class="btn btn-primary">Visualizar vagas</a>
+            <button onClick={() => handleCardClick(handleClick)} class="btn btn-primary">Visualizar vagas</button>
         </div>
     </div>
   )

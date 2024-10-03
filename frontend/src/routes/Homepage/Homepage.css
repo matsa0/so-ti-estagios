@@ -1,8 +1,9 @@
-/* Homepage.css */
+/* Navbar */
 
 .searchNavbar {
     background-color: transparent !important; 
     padding: 1rem; 
+    border-bottom: solid 1px #86C232;
 }
 
 .logoNavbar {
@@ -17,7 +18,11 @@
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: white; 
+    cursor: pointer;
+}
+
+.navbar-brand:hover {
+    color: #86C232;
 }
 
 .form-control {
@@ -54,4 +59,40 @@
 
 .profile-infos span, .profile-infos a {
     margin-left: 0.5rem; 
+}
+
+/* Homepage */
+.homepageContent h2{
+    padding-top: 3rem;
+    font-weight: bold;
+}
+
+.homepageContent .homepageCards {
+    padding-top: 2rem;
+}
+
+/* Card */
+.cardArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #474b4f;
+    border-radius: 7px;
+    margin: 2rem;
+    padding: 20px;
+    width: 400px;
+    height: 200px;
+}
+
+.cardArea label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.cardArea button {
+    width: 50%;
+    background-color: #61892F;
+    border: none;
 }

@@ -2,14 +2,15 @@ import React from 'react'
 
 import Navbar from './Navbar'
 import Card from './Card'
+import './Homepage.css'
 
 export default function Homepage() {
   return (
     <div>
         <Navbar />
-        <div class="container">
+        <div class="homepageContent container">
             <h2>CONHEÇA ALGUMAS ÁREAS DISPONÍVEIS</h2>
-            <div class="row row-cols-3">
+            <div class="homepageCards row row-cols-3">
                 <Card handleClick={"software_development"} name={"Desenvolvimento de Software"} />
                 <Card handleClick={"data_science"} name={"Ciência de Dados"} />
                 <Card handleClick={"artificial_intelligence"} name={"Inteligência Artificial"} />

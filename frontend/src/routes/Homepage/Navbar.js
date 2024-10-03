@@ -83,7 +83,7 @@ export default function Navbar() {
     <div>
         <nav className="searchNavbar navbar bg-body-tertiary">
             <div className="container-fluid">
-                <div className='logoNavbar d-flex'>
+                <div className='logoNavbar d-flex' onClick={() => navigate("/homepage")}>
                     <a className="navbar-brand">SÓ TI ESTÁGIOS</a>
                     <label><SearchCode size={30} /></label>
                 </div>
