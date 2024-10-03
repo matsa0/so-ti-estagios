@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { LogOut, Search, User } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import './Homepage.css'
+import { SearchCode } from 'lucide-react';
 
 export default function Navbar() {
     const [userName, setUserName] = useState(null);
@@ -79,20 +81,23 @@ export default function Navbar() {
 
   return (
     <div>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand">SÓ TI ESTÁGIOS</a>
-                <form class="d-flex justify-content-center" role="search">
+        <nav className="searchNavbar navbar bg-body-tertiary">
+            <div className="container-fluid">
+                <div className='logoNavbar d-flex'>
+                    <a className="navbar-brand">SÓ TI ESTÁGIOS</a>
+                    <label><SearchCode size={30} /></label>
+                </div>
+                <form className="d-flex justify-content-center" role="search">
                     <input 
-                    class="form-control me-2" 
+                    className="form-control me-2" 
                     type="search" 
                     placeholder="Procure por vagas..." 
                     aria-label="Search"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)} />
-                    <button class="btn btn-outline-success" type="submit"><Search /></button>
+                    <button className="searchBtn btn btn-outline-success" type="submit"><Search /></button>
                 </form>
-                <div className=' d-flex'>
+                <div className='d-flex'>
                   <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
                     <User /> 
                     {
@@ -102,7 +107,7 @@ export default function Navbar() {
                     }   
                   </div>
                     <>
-                     <LogOut onClick={logOut} style={{cursor: 'pointer'}} />
+                     <label className='logOutBtn'><LogOut onClick={logOut} style={{cursor: 'pointer'}} /></label>
                     </>
                 </div>
             </div>

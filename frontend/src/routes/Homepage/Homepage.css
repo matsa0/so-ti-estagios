@@ -1,0 +1,57 @@
+/* Homepage.css */
+
+.searchNavbar {
+    background-color: transparent !important; 
+    padding: 1rem; 
+}
+
+.logoNavbar {
+    align-items: center;
+}
+.logoNavbar a, label {
+    color: #86C232;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white; 
+}
+
+.form-control {
+    width: 300px; 
+}
+.searchBtn {
+    border: solid 2px hsl(85, 59%, 48%);
+}
+.logOutBtn {
+    color: rgb(236, 33, 33);
+    margin-left: 1rem;
+}
+
+.searchBtn {
+    color: hsl(85, 59%, 48%); 
+    border-color: hsl(85, 59%, 48%); 
+}
+
+.searchBtn:hover {
+    background-color: hsl(85, 59%, 48%); 
+    color: white; 
+}
+
+.profile-infos {
+    display: flex;
+    align-items: center;
+    color: white; 
+    margin-right: 1rem; 
+}
+.profile-infos:hover {
+    color: #86C232;
+    transition: .1s;
+}
+
+.profile-infos span, .profile-infos a {
+    margin-left: 0.5rem; 
+}
