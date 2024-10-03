@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../../styles/Register.css'
 import axios from 'axios';
+import { SearchCode } from 'lucide-react';
 
 
 export default function Register() {
@@ -107,76 +108,70 @@ export default function Register() {
     <div className='centerScreen'>
         <div className='container registerScope'>
             <div className='row align-items-center'>
-                <div className='col'>
-                    <h1>BEM-VINDO(a) A SÓ TI ESTÁGIOS</h1>
-                    <p>O caminho de oportunidades para estudantes da área da tecnologia da informação.</p>
-                    <h3>Possui um cadastro?</h3>
-                    <p>Possui cadastro? <Link to={"/"}>Entre agora!</Link></p>
+                <div className='logo d-flex'>
+                    <h1>SÓ TI ESTÁGIOS</h1> 
+                    <label className='iconSearch'><SearchCode size={50} /></label>
+                </div>
+                <p className='mainPhrase'>O caminho de oportunidades para estudantes da área da tecnologia da informação.</p>
 
-                    <Link to={"/registerCompany"}><button type="submit" className="btn btn-success">Sou empresa!</button></Link>
-                </div>
-                <div className='col-6'>
-                    <h1>Crie sua conta</h1>
-                    <p>Preencha os campos</p>
-                    <form onSubmit={(e) => onSubmit(e)}>
-                        <div className='form-group'>
-                            <label for="inputFirstName">Primeiro nome</label>
-                            <input 
-                            type='text' 
-                            className='form-control' 
-                            placeholder='Digite seu nome' 
-                            id='inputFirstName'
-                            onChange={(e) => {onFirstNameChange(e)}}
-                            value={firstName}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputLastName">Último nome</label>
-                            <input 
-                            type='text' 
-                            className='form-control' 
-                            placeholder='Digite seu sobrenome' 
-                            id='inputLastName'
-                            onChange={(e) => {onLastNameChange(e)}}
-                            value={lastName}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputEmail">Email</label>
-                            <input 
-                            type='email' 
-                            className='form-control' 
-                            placeholder='Digite seu email' 
-                            id='inputEmail'
-                            onChange={(e) => onEmailChange(e)}
-                            value={email}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputPassword">Senha</label>
-                            <input 
-                            type='password' 
-                            className='form-control' 
-                            placeholder='Digite sua senha' 
-                            id='inputPassword'
-                            value={password}
-                            onChange={(e) => {onPasswordChange(e)}}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputConfirmPassword">Confirmar Senha</label>
-                            <input 
-                            type='password' 
-                            className='form-control' 
-                            placeholder='Confirme sua senha' 
-                            id='inputConfirmPassword'
-                            value={confirmPassword}
-                            onChange={(e) => {onConfirmPasswordChange(e)}}
-                            ></input>
-                        </div>
-                       <button type="submit" className="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
+                <form className="registerForm" onSubmit={(e) => onSubmit(e)}>
+                    <div className='form-group'>
+                        <label for="inputFirstName">Primeiro nome</label>
+                        <input 
+                        type='text' 
+                        className='form-control' 
+                        placeholder='Digite seu nome' 
+                        id='inputFirstName'
+                        onChange={(e) => {onFirstNameChange(e)}}
+                        value={firstName}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputLastName">Último nome</label>
+                        <input 
+                        type='text' 
+                        className='form-control' 
+                        placeholder='Digite seu sobrenome' 
+                        id='inputLastName'
+                        onChange={(e) => {onLastNameChange(e)}}
+                        value={lastName}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputEmail">Email</label>
+                        <input 
+                        type='email' 
+                        className='form-control' 
+                        placeholder='Digite seu email' 
+                        id='inputEmail'
+                        onChange={(e) => onEmailChange(e)}
+                        value={email}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputPassword">Senha</label>
+                        <input 
+                        type='password' 
+                        className='form-control' 
+                        placeholder='Digite sua senha' 
+                        id='inputPassword'
+                        value={password}
+                        onChange={(e) => {onPasswordChange(e)}}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputConfirmPassword">Confirmar Senha</label>
+                        <input 
+                        type='password' 
+                        className='form-control' 
+                        placeholder='Confirme sua senha' 
+                        id='inputConfirmPassword'
+                        value={confirmPassword}
+                        onChange={(e) => {onConfirmPasswordChange(e)}}
+                        ></input>
+                    </div>
+                    <button type="submit" className="submitBtn btn btn-primary">Registrar</button>
+                </form>
             </div>
         </div>
     </div>

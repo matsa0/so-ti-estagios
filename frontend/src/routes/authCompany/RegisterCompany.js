@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../../styles/Register.css'
 import axios from 'axios';
+import { SearchCode } from 'lucide-react';
 
 export default function RegisterCompany() {
     let navigate = useNavigate();
@@ -101,63 +102,59 @@ export default function RegisterCompany() {
     <div className='centerScreen'>
         <div className='container registerScope'>
             <div className='row align-items-center'>
-                <div className='col'>
-                    <h1>BEM-VINDO(a) A SÓ TI ESTÁGIOS</h1>
-                    <p>Encontre estudantes qualificados para preencher as vagas da sua empresa.</p>
-                    <h3>Possui um cadastro?</h3>
-                    <p>Possui cadastro? <Link to={"/loginCompany"}>Entre agora!</Link></p>
+            <div className='logo d-flex'>
+                    <h1>SÓ TI ESTÁGIOS</h1> 
+                    <label className='iconSearch'><SearchCode size={50} /></label>
                 </div>
-                <div className='col-6'>
-                    <h1>Crie sua conta</h1>
-                    <p>Preencha os campos</p>
-                    <form onSubmit={(e) => onSubmit(e)}>
-                        <div className='form-group'>
-                            <label for="inputName">Nome</label>
-                            <input 
-                            type='text' 
-                            className='form-control' 
-                            placeholder='Digite o nome da empresa' 
-                            id='inputName'
-                            value={name}
-                            onChange={(e) => {onNameChange(e)}}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputCnpj">CNPJ</label>
-                            <input 
-                            type='text' 
-                            className='form-control' 
-                            placeholder='Digite o CNPJ da empresa' 
-                            id='inputCnpj'
-                            value={cnpj}
-                            onChange={(e) => onCnpjChange(e)}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputPassword">Senha</label>
-                            <input 
-                            type='password' 
-                            className='form-control' 
-                            placeholder='Digite sua senha' 
-                            id='inputPassword'
-                            value={password}
-                            onChange={(e) => onPasswordChange(e)}
-                            ></input>
-                        </div>
-                        <div className='form-group'>
-                            <label for="inputConfirmPassword">Confirmar Senha</label>
-                            <input 
-                            type='password' 
-                            className='form-control' 
-                            placeholder='Confirme sua senha' 
-                            id='inputConfirmPassword'
-                            value={confirmPassword}
-                            onChange={(e) => onConfirmPasswordChange(e)}
-                            ></input>
-                        </div>
-                        <button type="submit" className="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
+                <p className='mainPhrase'>Encontre estudantes qualificados para preencher as vagas da sua empresa.</p>
+
+                <form className="registerForm" onSubmit={(e) => onSubmit(e)}>
+                    <div className='form-group'>
+                        <label for="inputName">Nome</label>
+                        <input 
+                        type='text' 
+                        className='form-control' 
+                        placeholder='Digite o nome da empresa' 
+                        id='inputName'
+                        value={name}
+                        onChange={(e) => {onNameChange(e)}}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputCnpj">CNPJ</label>
+                        <input 
+                        type='text' 
+                        className='form-control' 
+                        placeholder='Digite o CNPJ da empresa' 
+                        id='inputCnpj'
+                        value={cnpj}
+                        onChange={(e) => onCnpjChange(e)}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputPassword">Senha</label>
+                        <input 
+                        type='password' 
+                        className='form-control' 
+                        placeholder='Digite sua senha' 
+                        id='inputPassword'
+                        value={password}
+                        onChange={(e) => onPasswordChange(e)}
+                        ></input>
+                    </div>
+                    <div className='form-group'>
+                        <label for="inputConfirmPassword">Confirmar Senha</label>
+                        <input 
+                        type='password' 
+                        className='form-control' 
+                        placeholder='Confirme sua senha' 
+                        id='inputConfirmPassword'
+                        value={confirmPassword}
+                        onChange={(e) => onConfirmPasswordChange(e)}
+                        ></input>
+                    </div>
+                    <button type="submit" className="submitBtn btn btn-primary">Registrar</button>
+                </form>
             </div>
         </div>
     </div>

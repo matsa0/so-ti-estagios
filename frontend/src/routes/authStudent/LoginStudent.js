@@ -72,7 +72,7 @@ export default function Login() {
             <div className='row'>
               <div className='logo d-flex'>
                 <h1>SÓ TI ESTÁGIOS</h1> 
-                <label className='iconSearch'><SearchCode size={42}/></label>
+                <label className='iconSearch'><SearchCode size={50}/></label>
               </div>
                 <form className='loginForm' onSubmit={(e) => onSubmit(e)}>
                     <div className='form-group'>
@@ -97,7 +97,7 @@ export default function Login() {
                         value={password}
                         required></input>
                     </div>
-                    <button type="submit" className="btn btn-primary">Entrar</button>
+                    <button type="submit" className="submitBtn btn btn-primary">Entrar</button>
                 </form>
                 <p>Não possui cadastro? <Link to={"/register"}><label className='register-btn'>Cadastre-se agora!</label></Link></p>
               

@@ -8,6 +8,7 @@
     text-align: left;
 }
 
+
 .logo {
     color: #86C232;
     padding-bottom: 1.5rem;
@@ -16,8 +17,23 @@
     align-items: center;
 }
 .logo h1 {
+    font-size: 52px;
     font-weight: bold;
     padding-right: 0.4rem;
+}
+
+
+.loginCompanyScope .logo {
+    padding-bottom: 0.3rem;
+}
+
+.companyText {
+    text-align: center;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    color: #86C232;
 }
 
 .loginForm .form-group {
@@ -39,14 +55,14 @@
     opacity: .5;
 }
 
-.loginForm button {
+.submitBtn {
     width: 5rem;
-    background-color: transparent;
+    background-color: #86C232;
     border: solid 2px #86C232;
     color: #86C232;
 }
-.loginForm button:hover {
-    background-color: #86C232;
+.submitBtn:hover {
+    background-color: transparent;
     color: white;
     border: solid 2px #86C232;
 }
@@ -54,20 +70,19 @@
 .register-btn {
     padding-top: 1rem;
     color: #86C232;
-    cursor: pointer;
 }
 .register-btn:hover {
     transition: .2s;
     color: #6e9f2a;
-    cursor: pointer;
 }
 
 .companyBtn {
-    background-color: #86C232; 
+    background-color: #61892F; 
+    border: solid 2px #61892F;
     color: white;
 }
 
 .companyBtn:hover {
-    background-color: #6e9f2a;
-    cursor: pointer;
+    background-color: rgb(84, 121, 32);
+    border: solid 2px rgb(84, 121, 32);
 }

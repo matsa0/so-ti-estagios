@@ -1,10 +1,39 @@
 .centerScreen .registerScope {
     display: flex;
     flex-wrap: wrap;
-    width: 895px;
-    height: 583px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.457);
+    align-items: center;
+    color: white;
+    width: 500px;
+    height: 523px;
+    text-align: left;
 }
 
+.registerScope .logo {
+    padding-bottom: 0.5rem;
+}
+
+.mainPhrase {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.registerForm button {
+    width: 6.5rem;
+}
+
+.registerForm .form-group {
+    padding: 0 0 1.3rem 0;
+}
+
+.submitBtn {
+    width: 5rem;
+    background-color: #86C232;
+    border: solid 2px #86C232;
+    color: white;
+}
+.submitBtn:hover {
+    background-color: transparent;
+    color: #86C232;
+    border: solid 2px #86C232;
+}

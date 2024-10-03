@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SearchCode } from "lucide-react";
-import '../authCompany/styles/Login.css'
 
 export default function LoginCompany() {
   let navigate = useNavigate();
@@ -62,12 +61,13 @@ export default function LoginCompany() {
   return (
     <div>
       <div className="centerScreen">
-        <div className="container loginScope">
+        <div className="container loginScope loginCompanyScope">
           <div className="row">
-            <div className='logo d-flex'>
-              <h1>SÓ TI ESTÁGIOS</h1> 
-              <label className='iconSearch'><SearchCode size={42} /></label>
-            </div>
+              <div className='logo d-flex'>
+                <h1>SÓ TI ESTÁGIOS</h1> 
+                <label className='iconSearch'><SearchCode size={50} /></label>
+              </div>
+              <label className="companyText">Empresa</label>
             <form className='loginForm' onSubmit={(e) => onSubmit(e)}>
               <div className="form-group">
                 <label for="inputEmail">CNPJ</label>
@@ -93,7 +93,7 @@ export default function LoginCompany() {
                   required
                 ></input>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="submitBtn btn btn-primary">
                 Entrar
               </button>
             </form>
