@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { MapPin, Building2, MapPinHouse , PenLine } from 'lucide-react';
+
 
 export default function Job() {
   const { areaName, id } = useParams(); //extract
@@ -70,21 +72,23 @@ export default function Job() {
     <div>
       <Navbar areaName={areaName} />
 
-      <div className='container'>
+      <div className='container jobContent'>
         <div className='row'>
-          <div className='col-8'>
-            <h1>{job.title}</h1>  
-            <p>{job.description}</p>
-            <label>{job.modality}</label>
-            <label>{job.location}</label>
+          <div className='col-9 jobInfos'>
+            <h1>
+              <label><PenLine size={40} /></label>
+              {job.title}
+            </h1>  
+            <label className='jobLocation'><MapPin />{job.location}</label>
+            <label className='jobModality'>{job.modality}</label>
+            <p className='jobDescription'>{job.description}</p>
           </div>
-          <div className='col company-infos'>
-            <h3>{job.company.name}</h3>
-            <label>{job.company.releaseYear}</label>
-            <label>{job.company.hqLocation}</label>
+          <div className='col companyInfos'>
+            <h3><label className='jobIcon'><Building2 size={30} /></label>{job.company.name}</h3>
+            <label style={{color: 'white', paddingRight: '5px'}}><MapPinHouse /></label>{job.company.hqLocation}
           </div>
         </div>
-        <a className="btn btn-primary" onClick={applyToJob}>Candidatar-se</a>
+        <button className="btn btn-primary" onClick={applyToJob}>Candidatar-se</button>
       </div>
     </div>
   )

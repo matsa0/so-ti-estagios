@@ -49,3 +49,57 @@
 .cardJob button:hover {
     background-color: rgb(84, 121, 32); 
 }
+
+/* Job */
+.jobContent {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.jobInfos {
+    text-align: left;
+    align-content: center;
+}
+
+.companyInfos {
+    text-align: center;
+}
+.companyInfos h3 {
+    color: #86C232;
+    padding: 0 0 5px 5px;
+}
+.companyInfos h3 .jobIcon {
+    color: #86C232;
+    padding-right: 5px;
+}
+
+
+.jobInfos h1 {
+    padding-bottom: 1.3rem;
+}
+.jobInfos p {
+    font-size: 17px;
+    text-align: justify;
+}
+.jobInfos h1 label {
+    color: white;
+    padding: 0 10px 0 0;
+}
+
+.jobModality, .jobLocation {
+    color: white; /* Define a cor do texto como branco */
+    margin-right: 10rem; /* Adiciona espaçamento entre as labels */
+    font-size: 25px;
+    padding-bottom: 2rem;
+}
+
+.jobContent button {
+    width: 15%;
+    background-color: #61892F;
+    border: none;
+    margin-top: 1rem;
+}
+.jobContent button:hover {
+    background-color: rgb(84, 121, 32); 
+}
