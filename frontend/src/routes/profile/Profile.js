@@ -4,8 +4,10 @@ import FormStudent from './FormStudent';
 import FormCompany from './FormCompany';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Trash2, Building2 } from 'lucide-react';
 import axios from 'axios';
+import { SquarePlus } from 'lucide-react';
+import './Profile.css'
 
 export default function Profile() {
     const [user, setUser] = useState("");
@@ -81,7 +83,7 @@ export default function Profile() {
 
 
   return (
-    <div>
+    <div className='profileContent'>
       <Navbar />
 
       <div className='container'>
@@ -92,15 +94,13 @@ export default function Profile() {
                   <h1>Olá, {user.firstName + " " + user.lastName + "!"}</h1>
                   <FormStudent user={user} />
             
-                  <h2>Vagas que você se candidatou</h2>
-                  <div className='row row-3'>
+                  <h3>Vagas que você se candidatou</h3>
+                  <div className='row row-3 justify-content-center'>
                     {jobs.map(job => ( 
-                      <div key={job.id} className='card p-2 m-3'>
-                        <label>{job.title}</label>
-                        <label>{job.company.name}</label>
-                        <label>{job.modality}</label>
-                        <label>{job.location}</label>
-                        <a onClick={() => navigate(`/area/${String(job.area).toLowerCase()}/${job.id}`)} className="btn btn-primary">Visualizar vaga</a>
+                      <div key={job.id} className='cardJob p-2 m-3'>
+                        <label className='jobTitle'>{job.title}</label>
+                        <label className='jobComanyName'>{job.company.name} <Building2 /></label>
+                        <button onClick={() => navigate(`/area/${String(job.area).toLowerCase()}/${job.id}`)} class="btn btn-primary">Visualizar vaga</button>  
                       </div>
                     ))}
                   </div>
@@ -108,21 +108,19 @@ export default function Profile() {
               : 
               <>
                 <h1>Olá, {user.name + "!"}</h1>
-                <button className="btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga</button>
+                <button className="companyBtn btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga <label className='addJobIcon'><SquarePlus color="white" size={28} /></label></button>
                 <FormCompany user={user} />
           
-                <h2>Vagas publicadas</h2>
+                <h3>Vagas publicadas</h3>
                   {publishedJobs.map(job => {
                     return (
-                      <div key={job.id} className='card p-2 m-3'>
+                      <div key={job.id} className='card cardJob p-2 m-3'>
                         <div className='d-flex'>
-                          <label onClick={() => navigate(`/editJob/${job.id}`)} style={{cursor: 'pointer'}}><Pencil /></label>
-                          <label onClick={() => removeJob(job.id)} style={{cursor: 'pointer'}}><Trash2 /></label>
+                          <label className='editJobIcon' onClick={() => navigate(`/editJob/${job.id}`)} ><Pencil className="editIcon" /></label>
+                          <label className='deleteJobIcon' onClick={() => removeJob(job.id)} ><Trash2 className="deleteIcon" /></label>
                         </div>
-                        <label>{job.title}</label>
-                        <label>{job.area}</label>
-                        <label>{job.modality}</label>
-                        <a onClick={() => navigate(`/publishedJob/${job.id}`)} className="btn btn-primary">Visualizar candidaturas</a>
+                        <label className='jobTitle'>{job.title}</label>
+                        <a onClick={() => navigate(`/publishedJob/${job.id}`)} className="companyBtn btn btn-primary">Visualizar candidaturas</a>
                       </div>
                     )
                   })} 

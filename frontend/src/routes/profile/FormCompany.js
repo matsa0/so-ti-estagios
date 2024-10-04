@@ -53,10 +53,10 @@ export default function FormCompany({ user }) {
   }
 
   return (
-    <div className='container'>
+    <div className='container d-flex justify-content-center'>
         <div className='row'>
             <h3>Atualize suas informações</h3>
-            <form onSubmit={(e) => {onSubmit(e)}}>
+            <form className='formCompany' onSubmit={(e) => {onSubmit(e)}}>
                 <div className='form-group'>
                     <label for="inputFirstName">Nome</label>
                     <input 
@@ -112,7 +112,7 @@ export default function FormCompany({ user }) {
                     value={about}
                     required></input>
                 </div>
-                <button type="submit" className="btn btn-primary">Atualizar</button>
+                <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>
         </div>
     </div>

@@ -40,6 +40,7 @@
     padding: 0 0 1.5rem 0;
 }
 
+
 .form-control {
     border: solid 2px hsl(85, 59%, 48%);
     color: white;
@@ -57,6 +58,9 @@
 
 .form-group input{
     width: 100%;
+}
+.form-group label {
+    color: white;
 }
 
 .submitBtn {

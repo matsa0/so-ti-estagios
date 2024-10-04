@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import './Profile.css'
 
 export default function FormStudent({ user }) {
     const[firstName, setFirstName] = useState(user.firstName);
@@ -68,10 +69,10 @@ export default function FormStudent({ user }) {
     }
 
   return (
-    <div className='container'>
+    <div className='container d-flex justify-content-center'>
         <div className='row'>
             <h3>Atualize suas informações</h3>
-            <form onSubmit={(e) => onSubmit(e)}>
+            <form className='formStudent' onSubmit={(e) => onSubmit(e)}>
                 <div className='form-group'>
                     <label for="inputFirstName">Primeiro Nome</label>
                     <input 
@@ -162,7 +163,7 @@ export default function FormStudent({ user }) {
                     value={description}
                     ></input>
                 </div>
-                <button type="submit" className="btn btn-primary">Atualizar</button>
+                <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>
         </div>
     </div>

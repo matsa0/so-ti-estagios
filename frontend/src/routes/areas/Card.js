@@ -13,7 +13,7 @@ const Card = ({ job }) => {
 
   return (
     <div>
-        <div className='cardJob '>
+        <div className='cardJob'>
             <label className='jobTitle'>{job.title}</label>
             <label className='jobComanyName'>{job.company.name} <Building2 /></label>
             <button onClick={() => handleCardClick(areaName)} class="btn btn-primary">Visualizar vaga</button>  

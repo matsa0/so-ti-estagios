@@ -1,0 +1,49 @@
+/* Profile */
+
+.profileContent  {
+    background-color: #222629;
+}
+.profileContent h1 {
+    padding: 2rem 0  0 0;
+}
+
+.profileContent h3 {
+    margin: 3rem 0 1rem 0;
+}
+
+
+/* FORMs */
+.formStudent, .formCompany {
+    text-align: left;
+    margin: 0 auto;
+}
+.formStudent .submitBtn, .formCompany .submitBtn {
+    width: 6rem;
+}
+
+.formStudent .form-group, .formCompany .form-group {
+    padding: 0 0 1rem 0;
+}
+
+/* Card */
+
+
+.profileContent .cardJob {
+    width: 400px;
+    height: 240px;
+    justify-content: flex-start;
+}
+
+.editJobIcon, .deleteJobIcon {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.editIcon:hover {
+    color: rgb(245, 245, 93);
+}
+
+.deleteIcon:hover {
+    color: rgb(211, 59, 59);
+}
+
