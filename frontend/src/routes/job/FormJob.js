@@ -142,7 +142,7 @@ export default function FormJob() {
                     value={description}
                     onChange={(e) => onDescriptionChange(e)}></input>
                 </div>
-                <button type="submit" className="btn btn-primary">Atualizar</button>
+                <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>
         </div>
       </div>

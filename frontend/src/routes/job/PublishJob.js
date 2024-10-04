@@ -137,7 +137,7 @@ export default function PublishJob() {
                     value={description}
                     onChange={(e) => onDescriptionChange(e)}></input>
                 </div>
-                <button type="submit" className="btn btn-primary">Publicar</button>
+                <button type="submit" className="submitBtn btn btn-primary">Publicar</button>
             </form>
         </div>
       </div>
