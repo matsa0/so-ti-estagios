@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Homepage/Navbar'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+import { CircleUserRound } from 'lucide-react';
+import './Job.css'
 
 export default function PublishedJob() {
     const { id } = useParams();
@@ -45,24 +47,28 @@ export default function PublishedJob() {
     }, [students])
 
   return (
-    <div>
+    <div className='candidatesContent'>
       <Navbar />
       <h1>Candidatos</h1>
 
-      <div className='row row-3'>
-        {students.length > 0 ? (
-          students.map(student => (
-            <div key={student.id} className='card p-2 m-3'>
-              <label>{student.firstName + ' ' + student.lastName}</label>
-              <label>{student.city}</label>
-              <label>{student.college}</label>
-              <a onClick={() => navigate(`/profileAppliedStudent/${student.id}`)} className="btn btn-primary">Visualizar perfil</a>
-            </div>
-          ))
-        ) : (
-          <p>Carregando...</p>
-        )}
+      <div className='container'> 
+        <div className='row row-3'>
+          {students.length > 0 ? (
+            students.map(student => (
+              <div key={student.id} className='card cardJob p-2 m-3'>
+                <label><CircleUserRound size={35}/></label>
+                <label className='studentName'>{student.firstName + ' ' + student.lastName}</label>
+                <label className='studentCity'>{student.city}</label>
+                <label className='studentAcademy'>{student.academy}</label>
+                <a onClick={() => navigate(`/profileAppliedStudent/${student.id}`)} className="companyBtn btn btn-primary">Visualizar perfil</a>
+              </div>
+            ))
+          ) : (
+            <p>Sem cadidatos</p>
+          )}
+        </div>
       </div>
+
     </div>
   )
 }

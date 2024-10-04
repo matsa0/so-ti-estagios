@@ -30,8 +30,8 @@
 
 .profileContent .cardJob {
     width: 400px;
-    height: 240px;
-    justify-content: flex-start;
+    height: 260px;
+    justify-content: center;
 }
 
 .editJobIcon, .deleteJobIcon {

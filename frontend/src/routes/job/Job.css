@@ -1,0 +1,11 @@
+.candidatesContent h1 {
+    padding: 2rem;
+}
+.candidatesContent label {
+    padding-bottom: 5px;
+}
+
+.studentName {
+    font-size: 25px;
+    font-weight: bold;
+}
