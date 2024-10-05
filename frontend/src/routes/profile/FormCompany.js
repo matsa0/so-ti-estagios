@@ -31,7 +31,8 @@ export default function FormCompany({ user }) {
     cnpj,
     releaseYear,
     hqLocation, 
-    about
+    about,
+    password: user.password
 }
 
   const onSubmit = async (e) => {

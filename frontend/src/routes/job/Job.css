@@ -23,18 +23,21 @@
 .publishJobContent h1{
     margin: 2rem 0 2rem 0;
 }
-
+.publishJobContent form {
+    text-align: left;
+    margin: 0 auto;
+}
 
 select {
     cursor: pointer;
 }
-
 select option {
     background-color: #222629;
     color: white;
 }
 
 .inputJobDescription {
+    text-align: start;
     width: 100%;
     height: 250px; 
     padding: 10px; 

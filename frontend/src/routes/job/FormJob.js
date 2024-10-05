@@ -135,13 +135,14 @@ export default function FormJob() {
                 </div>
                 <div className='form-group'>
                     <label for="description">Descrição</label>
-                    <input
+                    <textarea
                     type='text'
                     className='form-control inputJobDescription'
                     id='description'
                     placeholder={description ? description : 'Digite a descrição da vaga'}
                     value={description}
-                    onChange={(e) => onDescriptionChange(e)}></input>
+                    onChange={(e) => onDescriptionChange(e)}
+                    required></textarea>
                 </div>
                 <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>

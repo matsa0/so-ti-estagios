@@ -46,7 +46,8 @@ export default function FormStudent({ user }) {
         birthDate,
         college,
         academy,
-        description
+        description,
+        password: user.password
     }
 
     const onSubmit = async (e) => {

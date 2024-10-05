@@ -41,3 +41,30 @@
     color: rgb(211, 59, 59);
 }
 
+/* Candidato */
+.candidateContent {
+    margin-top: 3rem;
+    background-color: #222629;
+}
+.mainCol {
+    text-align: start;
+}
+.mainCol h1 {
+    font-size: 4rem;
+    padding-bottom: 2rem;
+}
+.mainCol p {
+    font-size: 20px;
+}
+.secondaryCol {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+}
+.secondaryCol label {
+    color: white;
+    font-size: 16px;
+}
+.studentDescription {
+    white-space: pre-wrap;
+}
