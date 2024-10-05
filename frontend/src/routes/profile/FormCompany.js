@@ -103,14 +103,14 @@ export default function FormCompany({ user }) {
                 </div>
                 <div className='form-group'>
                     <label for="inputAbout">Sobre a empresa</label>
-                    <input 
+                    <textarea 
                     type='text' 
-                    className='form-control' 
+                    className='form-control inputJobDescription' 
                     placeholder={user.about ? user.about : 'Digite um texto sobre a empresa' }
                     id='inputAbout'
                     onChange={(e) => onAboutChange(e)}
                     value={about}
-                    required></input>
+                    required></textarea>
                 </div>
                 <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>

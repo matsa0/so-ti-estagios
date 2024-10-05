@@ -3,14 +3,14 @@ import axios from 'axios';
 import './Profile.css'
 
 export default function FormStudent({ user }) {
-    const[firstName, setFirstName] = useState(user.firstName);
-    const[lastName, setLastName] = useState(user.lastName);
-    const[email, setEmail] = useState(user.email);
-    const[city, setCity] = useState(user.city);
-    const[birthDate, setBirthDate] = useState(user.birthDate ? user.birthDate : "");
-    const[college, setCollege] = useState(user.city);
-    const[academy, setAcademy] = useState(user.academy);
-    const[description, setDescription] = useState(user.description);
+    const[firstName, setFirstName] = useState(user.firstName ?? "");
+    const[lastName, setLastName] = useState(user.lastName ?? "");
+    const[email, setEmail] = useState(user.email ?? "");
+    const[city, setCity] = useState(user.city ?? "");
+    const[birthDate, setBirthDate] = useState(user.birthDate ?? "");
+    const[college, setCollege] = useState(user.city ?? "");
+    const[academy, setAcademy] = useState(user.academy ?? "");
+    const[description, setDescription] = useState(user.description ?? "");
     
     const onFistNameChange = (e) => {
         setFirstName(e.target.value)
@@ -154,14 +154,14 @@ export default function FormStudent({ user }) {
                 </div>
                 <div className='form-group'>
                     <label for="inputDescription">Fale sobre você</label>
-                    <input 
+                    <textarea 
                     type='text' 
-                    className='form-control' 
+                    className='form-control inputJobDescription' 
                     placeholder={user.description? user.description : 'Digite uma texto sobre sua trajetória'} 
                     id='inputDescription'
                     onChange={(e) => onDescriptionChange(e)}
                     value={description}
-                    ></input>
+                    ></textarea>
                 </div>
                 <button type="submit" className="submitBtn btn btn-primary">Atualizar</button>
             </form>

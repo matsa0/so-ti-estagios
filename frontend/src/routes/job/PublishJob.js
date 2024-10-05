@@ -74,7 +74,7 @@ export default function PublishJob() {
     }
     
     return (
-    <div>
+    <div className='publishJob'>
       <Navbar />
       <div className='container publishJobContent'>
         <div className='row'>
@@ -129,13 +129,14 @@ export default function PublishJob() {
                 </div>
                 <div className='form-group'>
                     <label for="description">Descrição</label>
-                    <input
+                    <textarea
                     type='text'
-                    className='form-control'
+                    className='form-control inputJobDescription'
                     id='description'
                     placeholder='Digite a descrição da vaga'
                     value={description}
-                    onChange={(e) => onDescriptionChange(e)}></input>
+                    onChange={(e) => onDescriptionChange(e)}>
+                    </textarea>
                 </div>
                 <button type="submit" className="submitBtn btn btn-primary">Publicar</button>
             </form>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Homepage/Navbar'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './Job.css'
 
 export default function FormJob() {
   const { id } = useParams("");
@@ -80,10 +81,10 @@ export default function FormJob() {
   return (
     <div>
       <Navbar />
-      <div className='container'>
+      <div className='container publishJobContent'>
         <div className='row'>
-            <h3>Atualize as informações da vaga</h3>
-            <form onSubmit={(e) => {onSubmit(e)}}>
+            <h1>Atualize as informações da vaga</h1>
+            <form className='formCompany' onSubmit={(e) => {onSubmit(e)}}>
                 <div className='form-group'>
                     <label for="title">Título</label>
                     <input 
@@ -136,9 +137,9 @@ export default function FormJob() {
                     <label for="description">Descrição</label>
                     <input
                     type='text'
-                    className='form-control'
+                    className='form-control inputJobDescription'
                     id='description'
-                        placeholder={description ? description : 'Digite a descrição da vaga'}
+                    placeholder={description ? description : 'Digite a descrição da vaga'}
                     value={description}
                     onChange={(e) => onDescriptionChange(e)}></input>
                 </div>
