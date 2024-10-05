@@ -76,10 +76,10 @@ export default function PublishJob() {
     return (
     <div>
       <Navbar />
-      <div className='container'>
+      <div className='container publishJobContent'>
         <div className='row'>
-            <h3>Publique uma vaga</h3>
-            <form onSubmit={(e) => onSubmit(e)}>
+            <h1>Publique uma vaga</h1>
+            <form className='formCompany' onSubmit={(e) => onSubmit(e)}>
                 <div className='form-group'> 
                     <label for="title">Título</label>
                     <input 
@@ -90,7 +90,7 @@ export default function PublishJob() {
                     value={title}
                     onChange={(e) => onTitleChange(e)}></input>
                 </div>
-                <div className='form-group'>
+                <div className='form-group selectModality'>
                     <label for="modality">Modalidade</label>
                     <select 
                     id='modality' 

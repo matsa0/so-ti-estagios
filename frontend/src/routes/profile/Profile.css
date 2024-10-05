@@ -1,6 +1,5 @@
 /* Profile */
-
-.profileContent  {
+.profileContent {
     background-color: #222629;
 }
 .profileContent h1 {
@@ -10,7 +9,6 @@
 .profileContent h3 {
     margin: 3rem 0 1rem 0;
 }
-
 
 /* FORMs */
 .formStudent, .formCompany {
@@ -26,8 +24,6 @@
 }
 
 /* Card */
-
-
 .profileContent .cardJob {
     width: 400px;
     height: 260px;
@@ -38,11 +34,9 @@
     padding: 1rem;
     cursor: pointer;
 }
-
 .editIcon:hover {
     color: rgb(245, 245, 93);
 }
-
 .deleteIcon:hover {
     color: rgb(211, 59, 59);
 }

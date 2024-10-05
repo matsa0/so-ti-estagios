@@ -11,4 +11,22 @@
     font-weight: bold;
 }
 
-/*  */
+/*Publish Job Form*/
+.publishJobContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.publishJobContent h1{
+    margin: 2rem 0 2rem 0;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    background-color: #222629;
+    color: white;
+
+}
