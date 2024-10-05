@@ -7,9 +7,9 @@ import { SearchCode } from 'lucide-react';
 
 export default function Navbar() {
     const [userName, setUserName] = useState(null);
-    const [jobs, setJobs] = useState([]); // Estado para armazenar os jobs
-    const [searchTerm, setSearchTerm] = useState(""); // Estado para armazenar o valor da pesquisa
-    const [filteredJobs, setFilteredJobs] = useState([]); // Estado para armazenar os jobs filtrados
+    const [jobs, setJobs] = useState([]); 
+    const [searchTerm, setSearchTerm] = useState(""); // State for store the search value
+    const [filteredJobs, setFilteredJobs] = useState([]); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -96,6 +96,15 @@ export default function Navbar() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)} />
                     <button className="searchBtn btn btn-outline-success" type="submit"><Search size={25} /></button>
+                    {searchTerm && (
+                            <div className='searchBox'>
+                                {filteredJobs.map(job => (
+                                    <div key={job.id} className='job-card'>
+                                        <p onClick={() => navigate(`/area/${(job.area).toLowerCase()}/${job.id}`)}>{job.title}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                 </form>
                 <div className='d-flex'>
                   <div className='profile-infos' style={{cursor: 'pointer'}} onClick={() => navigate("/profile")}>
@@ -112,13 +121,6 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
-        <div>
-            {filteredJobs.map(job => (
-            <div key={job.id} className='job-card'>
-                <p>{job.title}</p>
-            </div>
-            ))}
-        </div>
     </div>
   )
 }

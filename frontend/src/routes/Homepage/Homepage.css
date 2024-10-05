@@ -31,6 +31,7 @@
 
 .form-control {
     width: 300px; 
+    position: relative;
 }
 .searchBtn {
     border: solid 2px hsl(85, 59%, 48%);
@@ -102,4 +103,25 @@
 }
 .cardArea button:hover {
     background-color: rgb(84, 121, 32);
+}
+
+.searchBox {
+    width: 360px;
+    max-height: 250px;
+    background-color: #474b4f;
+    border: solid 1px #86C232;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+    text-align: left;
+    padding: 10px;
+}
+.searchBox p {
+    padding: 5px;
+    cursor: pointer;
+}
+.searchBox p:hover {
+    color: #86C232;
 }
