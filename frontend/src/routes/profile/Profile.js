@@ -8,7 +8,6 @@ import { Pencil, Trash2, Building2 } from 'lucide-react';
 import axios from 'axios';
 import { SquarePlus } from 'lucide-react';
 import './Profile.css'
-import Footer from '../../components/Footer';
 
 export default function Profile() {
     const [user, setUser] = useState("");

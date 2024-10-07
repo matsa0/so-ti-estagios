@@ -7,8 +7,7 @@ export default function FormStudent({ user }) {
     const[lastName, setLastName] = useState(user.lastName ?? "");
     const[email, setEmail] = useState(user.email ?? "");
     const[city, setCity] = useState(user.city ?? "");
-    const[birthDate, setBirthDate] = useState(user.birthDate ?? "");
-    const[college, setCollege] = useState(user.city ?? "");
+    const[college, setCollege] = useState(user.college ?? "");
     const[academy, setAcademy] = useState(user.academy ?? "");
     const[description, setDescription] = useState(user.description ?? "");
     
@@ -23,9 +22,6 @@ export default function FormStudent({ user }) {
     }
     const onCityChange = (e) => {
         setCity(e.target.value)
-    }
-    const onBirthDateChange = (e) => {
-        setBirthDate(e.target.value)
     }
     const onCollegeChange = (e) => {
         setCollege(e.target.value)
@@ -43,7 +39,6 @@ export default function FormStudent({ user }) {
         lastName,
         email,
         city,
-        birthDate,
         college,
         academy,
         description,
@@ -105,19 +100,6 @@ export default function FormStudent({ user }) {
                     id='inputEmail'
                     onChange={(e) => onEmailChange(e)}
                     value={email}
-                    ></input>
-                </div>
-                <div className='form-group'>
-                    <label for="inputBirthDate">Data de nascimento</label>
-                    <input 
-                    type='date' 
-                    min="1950-01-01"
-                    max="2008-12-31"
-                    className='form-control' 
-                    placeholder={user.birthDate? user.birthDate : 'Digite a sua data de nascimento'} 
-                    id='inputBirthDate'
-                    onChange={(e) => onBirthDateChange(e)}
-                    value={birthDate}
                     ></input>
                 </div>
                 <div className='form-group'>

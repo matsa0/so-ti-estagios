@@ -47,12 +47,13 @@ export default function PublishedJob() {
     }, [students])
 
   return (
+    <> 
+    <Navbar />
     <div className='candidatesContent'>
-      <Navbar />
       <h1>Candidatos</h1>
 
       <div className='container'> 
-        <div className='row row-3'>
+        <div className='row'>
           {students.length > 0 ? (
             students.map(student => (
               <div key={student.id} className='card cardJob p-2 m-3'>
@@ -70,5 +71,7 @@ export default function PublishedJob() {
       </div>
 
     </div>
+    
+    </>
   )
 }

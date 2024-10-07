@@ -1,4 +1,10 @@
 /*Candidates*/
+
+.candidatesContent .container .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .candidatesContent h1 {
     padding: 2rem;
 }
