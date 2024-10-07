@@ -3,6 +3,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Card from './Card'
 import './Homepage.css'
+import Footer from '../../components/Footer'
 
 export default function Homepage() {
   return (

@@ -8,6 +8,7 @@ import { Pencil, Trash2, Building2 } from 'lucide-react';
 import axios from 'axios';
 import { SquarePlus } from 'lucide-react';
 import './Profile.css'
+import Footer from '../../components/Footer';
 
 export default function Profile() {
     const [user, setUser] = useState("");
@@ -90,7 +91,7 @@ export default function Profile() {
         <div className='row'>
             {
               user.firstName ?
-              <>
+              <div className='cardsProfileContent'>
                   <h1>Olá, {user.firstName + " " + user.lastName + "!"}</h1>
                   <FormStudent user={user} />
             
@@ -104,9 +105,9 @@ export default function Profile() {
                       </div>
                     ))}
                   </div>
-              </>
+              </div>
               : 
-              <>
+              <div className='cardsProfileContent'>
                 <h1>Olá, {user.name + "!"}</h1>
                 <button className="companyBtn btn btn-primary" onClick={() => {navigate("/publishJob")}}>Ofertar uma vaga <label className='addJobIcon'><SquarePlus color="white" size={28} /></label></button>
                 <FormCompany user={user} />
@@ -124,7 +125,7 @@ export default function Profile() {
                       </div>
                     )
                   })} 
-              </>
+              </div>
             }
         </div>
       </div>

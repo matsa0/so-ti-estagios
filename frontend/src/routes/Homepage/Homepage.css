@@ -38,6 +38,10 @@
 .logOutBtn {
     color: rgb(236, 33, 33);
     margin-left: 1rem;
+    transition: .1s;
+}
+.logOutBtn:hover {
+    transform: scale(1.1);
 }
 
 .searchBtn {
@@ -55,10 +59,11 @@
     align-items: center;
     color: white; 
     margin-right: 1rem; 
+    transition: .1s;
 }
 .profile-infos:hover {
     color: #86C232;
-    transition: .1s;
+    transform: scale(1.1);
 }
 
 .profile-infos span, .profile-infos a {

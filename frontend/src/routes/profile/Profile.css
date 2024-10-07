@@ -41,6 +41,10 @@
     color: rgb(211, 59, 59);
 }
 
+.cardsProfileContent {
+    margin-bottom: 3rem;
+}
+
 /* Candidato */
 .candidateContent {
     margin-top: 3rem;

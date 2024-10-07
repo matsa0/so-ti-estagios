@@ -13,36 +13,42 @@ import ProfileAppliedStudent from './routes/profile/ProfileAppliedStudent';
 import PublishedJob from './routes/job/PublishedJob';
 import EditJob from './routes/job/FormJob';
 import FormJob from './routes/job/FormJob';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/register' element={<Register />}/>
+      <div id="root">
+        <div className="main-content">
+          <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/register' element={<Register />}/>
 
-          <Route path='/loginCompany' element={<LoginCompany />}/>
-          <Route path='/registerCompany' element={<RegisterCompany />}/>
+            <Route path='/loginCompany' element={<LoginCompany />}/>
+            <Route path='/registerCompany' element={<RegisterCompany />}/>
 
-          <Route path='/homepage' element={<Homepage/>} />
+            <Route path='/homepage' element={<Homepage/>} />
 
-          <Route path='/area/:areaName' element={<Area />}/>
+            <Route path='/area/:areaName' element={<Area />}/>
 
-          <Route path='/area/:areaName/:id' element={<Job />} />
+            <Route path='/area/:areaName/:id' element={<Job />} />
 
-          <Route path='/profile' element={<Profile />}/>
+            <Route path='/profile' element={<Profile />}/>
 
-          <Route path='/publishJob' element={<PublishJob />}/>
+            <Route path='/publishJob' element={<PublishJob />}/>
 
-          <Route path='/publishedJob/:id' element={<PublishedJob />}/>
+            <Route path='/publishedJob/:id' element={<PublishedJob />}/>
 
-          <Route path='/profileAppliedStudent/:id' element={<ProfileAppliedStudent />} />
+            <Route path='/profileAppliedStudent/:id' element={<ProfileAppliedStudent />} />
 
-          <Route path='/editJob/:id' element={<FormJob />}/>
+            <Route path='/editJob/:id' element={<FormJob />}/>
 
-          <Route />
-        </Routes>
+            <Route />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
       </Router>
     </div>
   );
