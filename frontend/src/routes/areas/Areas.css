@@ -50,6 +50,14 @@
     background-color: rgb(84, 121, 32); 
 }
 
+.jobComanyName {
+    transition: .1s;
+    cursor: pointer;
+}
+.jobComanyName:hover {
+    transform: scale(1.2);
+}
+
 /* Job */
 .jobContent {
     padding-top: 3rem;

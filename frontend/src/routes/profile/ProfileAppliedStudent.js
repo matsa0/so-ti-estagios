@@ -21,7 +21,6 @@ export default function ProfileAppliedStudent() {
 
   useEffect(() => {
     getStudent()
-    console.log(student)
   }, [])
 
   return (

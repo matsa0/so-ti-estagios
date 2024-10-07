@@ -15,7 +15,7 @@ const Card = ({ job }) => {
     <div>
         <div className='cardJob'>
             <label className='jobTitle'>{job.title}</label>
-            <label className='jobComanyName'>{job.company.name} <Building2 /></label>
+            <label onClick={() => navigate(`/profileCompany/${job.company.id}`)} className='jobComanyName'>{job.company.name} <Building2 /></label>
             <button onClick={() => handleCardClick(areaName)} class="btn btn-primary">Visualizar vaga</button>  
         </div>
     </div>

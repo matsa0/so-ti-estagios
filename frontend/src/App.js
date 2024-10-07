@@ -14,6 +14,7 @@ import PublishedJob from './routes/job/PublishedJob';
 import EditJob from './routes/job/FormJob';
 import FormJob from './routes/job/FormJob';
 import Footer from './components/Footer';
+import ProfileCompany from './routes/profile/ProfileCompany';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
 
             <Route path='/editJob/:id' element={<FormJob />}/>
 
+            <Route path='/profileCompany/:id' element={<ProfileCompany />} />
             <Route />
           </Routes>
         </div>
