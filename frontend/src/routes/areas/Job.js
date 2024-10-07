@@ -3,19 +3,28 @@ import Navbar from './Navbar'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { MapPin, Building2, MapPinHouse , PenLine } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Job() {
   const { areaName, id } = useParams(); //extract
   const [job, setJob] = useState(null);
-
+  const navigate = useNavigate("");
   const loadJob = async () => {
     try {
       const response = await axios.get(`http://localhost:8080/api/v1/job/${id}`)
   
       if(response.status === 200) {
         const jobData = response.data
-        console.log(jobData)
+
+        if(jobData.modality === "HYBRID") {
+          jobData.modality = "Híbrido"
+        }
+        if(jobData.modality === "REMOTE") {
+          jobData.modality = "Remoto"
+        }
+        if(jobData.modality === "OFFICE") {
+          jobData.modality = "Presencial"
+        }
         setJob(jobData)
       }
     }
@@ -29,7 +38,7 @@ export default function Job() {
   }, [])
 
   if (!job) {
-    return (<p>Loading...</p>) 
+    return (<p>Não existem vagas.</p>) 
   }
 
   const applyToJob = async () => {
@@ -84,7 +93,10 @@ export default function Job() {
             <p className='jobDescription'>{job.description}</p>
           </div>
           <div className='col companyInfos'>
-            <h3><label className='jobIcon'><Building2 size={30} /></label>{job.company.name}</h3>
+            <h3 onClick={() => navigate(`/profileCompany/${job.company.id}`)}>
+              <label className='jobIcon'><Building2 size={30} /></label>
+              {job.company.name}
+            </h3>
             <label style={{color: 'white', paddingRight: '5px'}}><MapPinHouse /></label>{job.company.hqLocation}
           </div>
         </div>

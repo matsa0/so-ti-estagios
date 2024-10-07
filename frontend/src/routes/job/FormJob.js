@@ -8,9 +8,9 @@ export default function FormJob() {
   const { id } = useParams("");
   const[job, setJob] = useState("");
   const[title, setTitle] = useState(job.title ?? "");
-  const[modality, setModality] = useState(job.modality ?? "OFFICE");
-  const[location, setLocation] = useState(job.modality ?? ""); 
-  const[area, setArea] = useState(job.area ?? "SOFTWARE_DEVELOPMENT");
+  const[modality, setModality] = useState(job.modality ?? "");
+  const[location, setLocation] = useState(job.location ?? ""); 
+  const[area, setArea] = useState(job.area ?? "");
   const[description, setDescription] = useState(job.description ?? "");
 
   const onTitleChange = (e) => {
@@ -90,7 +90,7 @@ export default function FormJob() {
                     <input 
                     type='text' 
                     className='form-control' 
-                    placeholder={title ? title : 'Digite o título da vag'}
+                    placeholder={title ? title : 'Digite o título da vaga'}
                     id='title'
                     onChange={(e) => onTitleChange(e)}
                     value={title}

@@ -37,7 +37,7 @@ export default function Area() {
                   <Card key={job.id} job={job}/>
                 ))
               ) : (
-                <h2>Não foram encontradas vagas para esta área</h2>
+                <h2 className='m-auto pt-4'>Não foram encontradas vagas para esta área.</h2>
               )}
             </div>
         </div>

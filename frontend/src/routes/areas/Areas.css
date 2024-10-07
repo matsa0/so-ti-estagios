@@ -76,10 +76,12 @@
 .companyInfos h3 {
     color: #86C232;
     padding: 0 0 5px 5px;
+    cursor: pointer;
 }
 .companyInfos h3 .jobIcon {
     color: #86C232;
     padding-right: 5px;
+    cursor: pointer;
 }
 
 

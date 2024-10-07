@@ -28,7 +28,7 @@ public class Job implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 60)
     private String title;
     @Column(nullable = false, length = 5000)
     private String description;

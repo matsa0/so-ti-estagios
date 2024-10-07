@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -28,14 +27,10 @@ public class Student implements Serializable {
     private String firstName;
     @Column(length = 30)
     private String lastName;
-
     private LocalDate birthDate;
-
     private String city;
     private String college;
     private String academy;
-
-    @Lob
     @Column
     private String description;
     @Column(unique = true)

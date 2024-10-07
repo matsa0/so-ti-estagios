@@ -100,7 +100,7 @@ export default function Profile() {
                     {jobs.map(job => ( 
                       <div key={job.id} className='cardJob p-2 m-3'>
                         <label className='jobTitle'>{job.title}</label>
-                        <label className='jobComanyName'>{job.company.name} <Building2 /></label>
+                        <label className='jobComanyName' onClick={() => navigate(`/profileCompany/${job.company.id}`)}>{job.company.name} <Building2 /></label>
                         <button onClick={() => navigate(`/area/${String(job.area).toLowerCase()}/${job.id}`)} class="btn btn-primary">Visualizar vaga</button>  
                       </div>
                     ))}
@@ -113,6 +113,7 @@ export default function Profile() {
                 <FormCompany user={user} />
           
                 <h3>Vagas publicadas</h3>
+                <div className='row row-3 justify-content-center'>
                   {publishedJobs.map(job => {
                     return (
                       <div key={job.id} className='card cardJob p-2 m-3'>
@@ -125,6 +126,7 @@ export default function Profile() {
                       </div>
                     )
                   })} 
+                </div>
               </div>
             }
         </div>

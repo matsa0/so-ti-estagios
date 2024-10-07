@@ -22,7 +22,6 @@ export default function FormCompany({ user }) {
   }
   const onAboutChange = (e) => {
     setAbout(e.target.value)
-    console.log("About value:", e.target.value);  // Adicionando console.log para verificar
   }
 
   const userData = {
@@ -85,7 +84,7 @@ export default function FormCompany({ user }) {
                     <input 
                     type='text' 
                     className='form-control' 
-                    placeholder={user.releaseYear ? user.releaseYear : 'Digite o ano de criação da empresa' }
+                    placeholder={user.releaseYear? user.releaseYear : 'Digite o ano de criação da empresa' }
                     id='inputYear'
                     onChange={(e) => onReleaseYearChange(e)}
                     value={releaseYear}
@@ -96,7 +95,7 @@ export default function FormCompany({ user }) {
                     <input 
                     type='text' 
                     className='form-control' 
-                    placeholder={user.hqLocation ? user.hqLocation : 'Digite o local da sede' }
+                    placeholder={user.hqLocation? user.hqLocation : 'Digite o local da sede' }
                     id='inputHqLocation'
                     onChange={(e) => onHqLocationChange(e)}
                     value={hqLocation}
@@ -107,7 +106,7 @@ export default function FormCompany({ user }) {
                     <textarea 
                     type='text' 
                     className='form-control inputJobDescription' 
-                    placeholder={user.about ? user.about : 'Digite um texto sobre a empresa' }
+                    placeholder={user.about? user.about : 'Digite um texto sobre a empresa' }
                     id='inputAbout'
                     onChange={(e) => onAboutChange(e)}
                     value={about}

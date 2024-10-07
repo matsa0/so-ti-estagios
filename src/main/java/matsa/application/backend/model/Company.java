@@ -25,11 +25,12 @@ public class Company implements Serializable {
     private Long id;
     @Column(length = 30)
     private String name;
-    @Column(length = 14)
+    @Column(length = 20)
     private String cnpj;
     private String password;
     private String releaseYear;
     private String hqLocation;
+    @Column
     private String about;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
