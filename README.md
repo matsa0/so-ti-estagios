@@ -33,6 +33,7 @@ Essa plataforma terá o objetivo de ser um local onde estudantes possam encontra
 ## 🛠️ Tecnologias usadas
 - `Spring Boot`
 - `React`
+- `Postgre`
 - `HTML`
 - `CSS`
 - `Bootstrap`
